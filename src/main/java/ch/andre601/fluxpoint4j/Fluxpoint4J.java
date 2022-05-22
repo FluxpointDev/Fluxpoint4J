@@ -3,8 +3,11 @@ package ch.andre601.fluxpoint4j;
 import ch.andre601.fluxpoint4j.image.CustomImage;
 import ch.andre601.fluxpoint4j.request.GeneratedImage;
 import ch.andre601.fluxpoint4j.request.RequestHandler;
+import ch.andre601.fluxpoint4j.util.ColorObject;
+import ch.andre601.fluxpoint4j.util.ColorObjectSerializer;
 import ch.andre601.fluxpoint4j.welcome.WelcomeImage;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -17,7 +20,9 @@ public class Fluxpoint4J{
     
     private String token = null;
     
-    private final Gson GSON = new Gson();
+    private final Gson GSON = new GsonBuilder()
+        .registerTypeAdapter(ColorObject.class, new ColorObjectSerializer())
+        .create();
     private final RequestHandler requestHandler = new RequestHandler();
     
     /**

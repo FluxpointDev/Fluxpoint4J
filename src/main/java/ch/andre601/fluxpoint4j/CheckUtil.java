@@ -1,5 +1,7 @@
 package ch.andre601.fluxpoint4j;
 
+import java.util.Objects;
+
 public class CheckUtil{
     
     public static void noneEmpty(String name, String... texts){
@@ -11,8 +13,16 @@ public class CheckUtil{
         check(!text.isEmpty(), name + " may not be empty.");
     }
     
-    public static void notNull(String text, String name){
+    public static void notNull(Object obj, String name){
+        check(obj != null, name + " may not be null.");
+    }
+    
+    public static void notNullOrEmpty(String text, String name){
         check(text != null && !text.isEmpty(), name + " may not be null nor empty.");
+    }
+    
+    public static void isPositive(double value, String name){
+        check(value >= 1, name + " may not be less than 1.");
     }
     
     public static void isPositive(int value, String name){

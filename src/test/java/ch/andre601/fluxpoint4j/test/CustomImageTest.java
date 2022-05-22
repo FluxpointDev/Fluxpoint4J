@@ -5,15 +5,20 @@ import ch.andre601.fluxpoint4j.image.CustomImage;
 import ch.andre601.fluxpoint4j.image.format.Image;
 import ch.andre601.fluxpoint4j.image.format.Text;
 import ch.andre601.fluxpoint4j.request.GeneratedImage;
+import ch.andre601.fluxpoint4j.util.ColorObject;
+import ch.andre601.fluxpoint4j.util.ColorObjectSerializer;
 import ch.andre601.fluxpoint4j.welcome.WelcomeImage;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 
 public class CustomImageTest{
     
-    private final Gson GSON = new Gson();
+    private final Gson GSON = new GsonBuilder()
+        .registerTypeAdapter(ColorObject.class, new ColorObjectSerializer())
+        .create();
     
     @Test
     public void createCustomImage(){
@@ -50,18 +55,18 @@ public class CustomImageTest{
     
     private CustomImage getCustomImage(){
         Image.Rectangle base = new Image.Rectangle()
-            .withColor(Color.GREEN)
+            .withColor(ColorObject.getFromColor(Color.GREEN))
             .withWidth(1920)
             .withHeight(1080);
     
         Image.Circle circle = new Image.Circle()
-            .withColor(Color.YELLOW)
+            .withColor(ColorObject.getFromColor(Color.YELLOW))
             .withRadius(100)
             .withPosX(10)
             .withPosY(10);
     
         Text.SingleLine text = new Text.SingleLine("Test")
-            .withColor(Color.BLACK)
+            .withColor(ColorObject.getFromColor(Color.CYAN))
             .withSize(20)
             .asBold(true)
             .withPosX(10)
@@ -77,8 +82,8 @@ public class CustomImageTest{
         return new WelcomeImage.Builder()
             .withUsername("Someone")
             .withAvatar("https://purrbot.site/assets/img/api/unknown.png")
-            .withBackgroundColor("#000000")
-            .withWelcomeColor(Color.YELLOW)
+            .withBackgroundColor(ColorObject.getFromString("#000000"))
+            .withWelcomeColor(ColorObject.getFromColor(Color.YELLOW))
             .build();
     }
 }
