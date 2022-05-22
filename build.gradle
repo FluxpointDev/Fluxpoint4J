@@ -1,4 +1,5 @@
 plugins {
+    id 'java'
     id 'java-library'
     id 'idea'
     id 'maven-publish'
@@ -33,5 +34,28 @@ test {
 configurations {
     testIplementation {
         extendsFrom(compileOnly)
+    }
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    destinationDir = file("$rootDir/docs/")
+    
+    options.encoding("UTF-8")
+    options.setMemberLevel(JavadocMemberLevel.PUBLIC)
+    
+    if(options instanceof StandardJavadocDocletOptions) {
+        def opt = options as StandardJavadocDocletOptions
+        
+        opt.links(
+                "https://docs.oracle.com/javase/8/docs/api"
+        )
+        if(JavaVersion.current().isJava9Compatible()) {
+            opt.addBooleanOption("html5", true)
+            opt.addStringOption("-release", "8")
+        }
+        if(JavaVersion.current().isJava11Compatible()) {
+            opt.addBooleanOption("-no-module-directories", true)
+        }
     }
 }
