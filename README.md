@@ -18,6 +18,7 @@ api.setToken("my.s3cr3t.t0k3n");
 
 ## Generate custom images
 
+> **Info**  
 > Make sure to [create a Fluxpoint4J instance](#fluxpoint4j-class) first.
 
 The Fluxpoint API allows users with an API-key to generate custom images using JSON.  
@@ -56,6 +57,9 @@ To now get the image, you have to call the `getCustomImage(CustomImage)` or `que
 Both methods do the exact same thing, but `queueCustomImage(CustomImage)` returns a `CompletableFuture` of this process.
 
 ## Generate Welcome images
+
+> **Info**  
+> Make sure to [create a Fluxpoint4J instance](#fluxpoint4j-class) first.
 
 You can use the `WelcomeImage.Builder` class to create a new `WelcomeImage` instance to use in either `getWelcomeImage(WelcomeImage)` or `queueWelcomeImage(WelcomeImage)`.
 
