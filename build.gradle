@@ -2,8 +2,7 @@ plugins {
     id 'java'
     id 'java-library'
     id 'idea'
-    id 'maven-publish'
-    id 'maven'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
 group 'ch.andre601'
