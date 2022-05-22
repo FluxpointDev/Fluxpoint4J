@@ -1,10 +1,58 @@
 [api]: https://fluxpoint.dev/api
 
+[releases]: https://github.com/FluxpointDev/Fluxpoint4J/releases
+[jitpack]: https://jitpack.io
+
+[versionBadge]: https://img.shields.io/github/v/release/fluxpointdev/Fluxpoint4J?label=Version&logo=github&style=for-the-badge
+
 # Fluxpoint4J
 
 Fluxpoint4J is the official Java wrapper for the [Fluxpoint API][api].
 
 It is still under development, but already provides ways to create [custom images](#generate-custom-images) and [welcome images](#generate-welcome-images).
+
+## Installation
+
+[![versionBadge]][releases]
+
+To install and use Fluxpoint4J will you need to add [jitpack] as a repository to your dependency manager of your choice and then declare the right version of Fluxpoint4J as dependency.
+
+### Gradle
+
+> **Note**  
+> Replace `{latestVersion}` with the lates [version on Github][releases].
+
+```groovy
+repositories {
+    maven { url = "https://jitpack.io" }
+}
+
+dependencies {
+    implementation "com.github.fluxpointdev:Fluxpoint4J:{latestVersion}"
+}
+```
+
+### Maven
+
+> **Note**  
+> Replace `{latestVersion}` with the lates [version on Github][releases].
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack</id>
+        <url>https://jitpack.io/</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.fluxpointdev</groupId>
+        <artifactId>Fluxpoint4J</artifactId>
+        <version>{latestVersion}</version>
+    </dependency>
+</dependencies>
+```
 
 ## Fluxpoint4J class
 
