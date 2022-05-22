@@ -6,7 +6,7 @@ plugins {
     id 'maven'
 }
 
-group 'com.andre601'
+group 'ch.andre601'
 version '1.0.0'
 
 sourceCompatibility = 1.8
