@@ -20,7 +20,7 @@ To install and use Fluxpoint4J will you need to add [jitpack] as a repository to
 ### Gradle
 
 > **Note**  
-> Replace `{latestVersion}` with the lates [version on Github][releases].
+> Replace `{latestVersion}` with the lates [version on Github][releases] (Shown above).
 
 ```groovy
 repositories {
@@ -35,7 +35,7 @@ dependencies {
 ### Maven
 
 > **Note**  
-> Replace `{latestVersion}` with the lates [version on Github][releases].
+> Replace `{latestVersion}` with the lates [version on Github][releases] (Shown above).
 
 ```xml
 <repositories>
@@ -87,7 +87,7 @@ Both have sub-classes that you should use.
 While any of the `Text` sub-classes are optional is at least one `Image` sub-class required to create the `base` of the custom image:  
 ```java
 Image.Rectangle base = new Image.Rectangle()
-    .withColor(Color.BLUE)
+    .withColor(ColorObject.fromColor(Color.BLUE))
     .withWidth(300)
     .withHeight(400);
 
@@ -115,4 +115,4 @@ Only 3 methods are required to be used in the Builder class to create a valid We
 
 - `withUsername(String)`
 - `withAvatar(String)`
-- `withBackgroundColor(...)`
+- `withBackgroundColor(ColorObject)`
