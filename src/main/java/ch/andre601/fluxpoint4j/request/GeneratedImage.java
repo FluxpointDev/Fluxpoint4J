@@ -18,12 +18,32 @@ import java.io.InputStream;
  * This class allows you to get the image as either {@link #getAsInputStream() InputStream} or
  * {@link #getAsBufferedImage() BufferedImage}.
  */
-public class GeneratedImage{
+public class GeneratedImage implements GenericAPIResponse{
     
     private final InputStream inputStream;
     
     public GeneratedImage(InputStream inputStream){
         this.inputStream = inputStream;
+    }
+    
+    /**
+     * Always returns 200 as a GeneratedImage instance is only returned on a successful request.
+     * 
+     * @return 200.
+     */
+    @Override
+    public int getCode(){
+        return 200;
+    }
+    
+    /**
+     * Always returns {@code null} as the returned content is an Image and not JSON.
+     * 
+     * @return {@code null}
+     */
+    @Override
+    public String getMessage(){
+        return null;
     }
     
     /**
@@ -36,7 +56,8 @@ public class GeneratedImage{
     }
     
     /**
-     * Gets the generated image as a {@link java.awt.image.BufferedImage BufferedImage}.
+     * Gets the generated image as a {@link java.awt.image.BufferedImage BufferedImage} or {@code null} if an
+     * {@link java.io.IOException IOException} is encountered.
      * 
      * @return Possibly-null {@link java.awt.image.BufferedImage BufferedImage} of the generated image.
      */

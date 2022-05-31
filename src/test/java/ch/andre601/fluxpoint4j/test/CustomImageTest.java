@@ -1,10 +1,8 @@
 package ch.andre601.fluxpoint4j.test;
 
-import ch.andre601.fluxpoint4j.Fluxpoint4J;
 import ch.andre601.fluxpoint4j.image.CustomImage;
 import ch.andre601.fluxpoint4j.image.format.Image;
 import ch.andre601.fluxpoint4j.image.format.Text;
-import ch.andre601.fluxpoint4j.request.GeneratedImage;
 import ch.andre601.fluxpoint4j.util.ColorObject;
 import ch.andre601.fluxpoint4j.util.ColorObjectSerializer;
 import ch.andre601.fluxpoint4j.welcome.WelcomeImage;
@@ -17,24 +15,9 @@ import java.awt.*;
 public class CustomImageTest{
     
     private final Gson GSON = new GsonBuilder()
+        .setPrettyPrinting()
         .registerTypeAdapter(ColorObject.class, new ColorObjectSerializer())
         .create();
-    
-    @Test
-    public void createCustomImage(){
-        Fluxpoint4J fluxpoint4J = new Fluxpoint4J();
-        fluxpoint4J.setToken(""); // TODO: Add a way to use ENV for token?
-        
-        GeneratedImage result = fluxpoint4J.getCustomImage(getCustomImage());
-        
-        if(result == null){
-            System.out.println("Received null GeneratedImage instance");
-            return;
-        }
-    
-        System.out.println("InputStream: " + result.getAsInputStream());
-        System.out.println("BufferedImage: " + result.getAsBufferedImage());
-    }
     
     @Test
     public void printJSON(){
