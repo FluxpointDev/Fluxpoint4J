@@ -42,6 +42,7 @@ public class GeneratedImage implements GenericAPIResponse{
      * @return {@code null}
      */
     @Override
+    @Nullable
     public String getMessage(){
         return null;
     }

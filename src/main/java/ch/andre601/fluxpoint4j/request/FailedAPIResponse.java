@@ -1,5 +1,7 @@
 package ch.andre601.fluxpoint4j.request;
 
+import org.jetbrains.annotations.Nullable;
+
 public class FailedAPIResponse implements GenericAPIResponse{
     
     private int code;
@@ -29,6 +31,7 @@ public class FailedAPIResponse implements GenericAPIResponse{
      * @return Message explaining why the request failed.
      */
     @Override
+    @Nullable
     public String getMessage(){
         return message;
     }

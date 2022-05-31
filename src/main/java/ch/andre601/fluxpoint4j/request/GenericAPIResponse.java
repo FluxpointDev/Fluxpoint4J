@@ -1,6 +1,6 @@
 package ch.andre601.fluxpoint4j.request;
 
-import jdk.internal.jline.internal.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A generic interface used for the responses of the API.

@@ -1,5 +1,7 @@
 package ch.andre601.fluxpoint4j.request;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
  * Class used for 
  */
@@ -32,6 +34,7 @@ public class MCServerPingResponse implements GenericAPIResponse{
      * @return Possibly-empty/null message from the API response.
      */
     @Override
+    @Nullable
     public String getMessage(){
         return message;
     }
