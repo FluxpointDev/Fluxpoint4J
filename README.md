@@ -104,6 +104,23 @@ Using the `addImage(Image)` and `addText(Text)` methods of `CustomImage.Builder`
 To now get the image, you have to call the `getCustomImage(CustomImage)` or `queueCustomImage(CustomImage)` method in the `Fluxpoint4J` class.  
 Both methods do the exact same thing, but `queueCustomImage(CustomImage)` returns a `CompletableFuture` of this process.
 
+The returned value is a `GenericAPIResponse` that can either be an instance of `GeneratedImage` or `FailedAPIResponse`.  
+You need to make `instanceof` checks to be sure that the returned instance is a Generated image or not.
+
+Example:  
+```java
+public GeneratedImage getImage(CustomImage image){
+    GenericAPIResponse response = getCustomImage(image);
+    
+    if(response instanceof FailedAPIResponse){
+        System.out.println("Request FAILED!")
+        return null;
+    }
+    
+    return (GeneratedImage)response;
+}
+```
+
 ## Generate Welcome images
 
 > **Note**  
@@ -116,3 +133,45 @@ Only 3 methods are required to be used in the Builder class to create a valid We
 - `withUsername(String)`
 - `withAvatar(String)`
 - `withBackgroundColor(ColorObject)`
+
+The returned value is a `GenericAPIResponse` that can either be an instance of `GeneratedImage` or `FailedAPIResponse`.  
+You need to make `instanceof` checks to be sure that the returned instance is a Generated image or not.
+
+Example:  
+```java
+public GeneratedImage getImage(WelcomeImage image){
+    GenericAPIResponse response = getWelcomeImage(image);
+    
+    if(response instanceof FailedAPIResponse){
+        System.out.println("Request FAILED!")
+        return null;
+    }
+    
+    return (GeneratedImage)response;
+}
+```
+
+## Ping a MC Server
+
+> **Note**  
+> Make sure to [create a Fluxpoint4J instance](#fluxpoint4j-class) first.
+
+You can ping a server and retrieve information from it by calling either `getMCServerInfo(String)`, `getMCServerInfo(String, int)` or one of their queue-equivalents.  
+The first one is pinging the provided domain/IP on the default port (25565) while the second one allows you to set a port.
+
+The returned value is a `GenericAPIResponse` that can either be an instance of `MCServerPingResponse` or `FailedAPIResponse`.  
+You need to make `instanceof` checks to be sure that the returned instance is a Generated image or not.
+
+Example:  
+```java
+public MCServerPingResponse getServerInfo(){
+    GenericAPIResponse response = getMCServerInfo("mc.example.com");
+    
+    if(response instanceof FailedAPIResponse){
+        System.out.println("Request FAILED!")
+        return null;
+    }
+    
+    return (MCServerPingResponse)response;
+}
+```
