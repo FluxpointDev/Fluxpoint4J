@@ -7,6 +7,16 @@ import java.awt.*;
 
 /**
  * Simple class to allow having a unified format for colors in the Fluxpoint API.
+ * 
+ * <p>Currently supported options are:
+ * <ul>
+ *     <li>{@link #getFromColor(Color) Using java.awt.Color object}</li>
+ *     <li>{@link #getFromRGB(int, int, int) Using RGB integer values}</li>
+ *     <li>{@link #getFromRGBA(int, int, int, int) Using RGBA integer values}</li>
+ *     <li>{@link #getFromString(String) Using color name or HEX color value}*</li>
+ * </ul>
+ * 
+ * *This wrapper will not try to validate the provided String in any shape or form.
  */
 public class ColorObject{
     
@@ -38,6 +48,8 @@ public class ColorObject{
      *     <li>{@code #rrggbb} for hexadecimal color values.</li>
      *     <li>Any <a target="_blank" href="https://www.htmlcsscolor.com/web-safe-colors">valid HTML/CSS color name</a>.</li>
      * </ul>
+     * Note that this wrapper will not try to validate and/or sanitize the provided value. Whatever has been set will
+     * be forwarded to the API, so make sure the provided value is actually valid.
      *
      * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
      * <ul>

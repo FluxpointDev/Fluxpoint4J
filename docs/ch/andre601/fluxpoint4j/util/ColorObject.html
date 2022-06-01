@@ -133,7 +133,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">ColorObject</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
-<div class="block">Simple class to allow having a unified format for colors in the Fluxpoint API.</div>
+<div class="block">Simple class to allow having a unified format for colors in the Fluxpoint API.
+ 
+ <p>Currently supported options are:
+ <ul>
+     <li><a href="#getFromColor(java.awt.Color)"><code>Using java.awt.Color object</code></a></li>
+     <li><a href="#getFromRGB(int,int,int)"><code>Using RGB integer values</code></a></li>
+     <li><a href="#getFromRGBA(int,int,int,int)"><code>Using RGBA integer values</code></a></li>
+     <li><a href="#getFromString(java.lang.String)"><code>Using color name or HEX color value</code></a>*</li>
+ </ul>
+ 
+ *This wrapper will not try to validate the provided String in any shape or form.</div>
 </li>
 </ul>
 </div>
@@ -257,6 +267,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
      <li><code>#rrggbb</code> for hexadecimal color values.</li>
      <li>Any <a target="_blank" href="https://www.htmlcsscolor.com/web-safe-colors">valid HTML/CSS color name</a>.</li>
  </ul>
+ Note that this wrapper will not try to validate and/or sanitize the provided value. Whatever has been set will
+ be forwarded to the API, so make sure the provided value is actually valid.
 
  <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
  <ul>
