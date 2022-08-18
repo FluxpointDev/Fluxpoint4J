@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class RequestHandler{
     
-    public static final String BASE_URL = "https://api.fluxpoint.dev/";
+    public static final String BASE_URL = "https://api.fluxpoint.dev";
     
     private final OkHttpClient CLIENT = new OkHttpClient();
     private final Gson GSON = new GsonBuilder()
@@ -20,11 +20,11 @@ public class RequestHandler{
         .create();
     
     public GenericAPIResponse getCustomImage(String token, CustomImage image){
-        return getImage(token, "gen/custom", GSON.toJson(image));
+        return getImage(token, "/gen/custom", GSON.toJson(image));
     }
     
     public GenericAPIResponse getWelcomeImage(String token, WelcomeImage image){
-        return getImage(token, "gen/welcome", GSON.toJson(image));
+        return getImage(token, "/gen/welcome", GSON.toJson(image));
     }
     
     public GenericAPIResponse getMcServerResponse(String token, String server, int port){

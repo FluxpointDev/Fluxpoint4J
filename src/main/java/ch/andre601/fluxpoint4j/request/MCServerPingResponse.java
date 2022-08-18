@@ -3,7 +3,9 @@ package ch.andre601.fluxpoint4j.request;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Class used for 
+ * Class used for the {@link ch.andre601.fluxpoint4j.Fluxpoint4J#getMCServerInfo(String, int) getMCServerInfo(...)} and
+ * {@link ch.andre601.fluxpoint4j.Fluxpoint4J#queueMCServerInfo(String, int) queueMCServerInfo(...)} methods in the
+ * {@link ch.andre601.fluxpoint4j.Fluxpoint4J Fluxpoint4J class}.
  */
 public class MCServerPingResponse implements GenericAPIResponse{
     private boolean online;
