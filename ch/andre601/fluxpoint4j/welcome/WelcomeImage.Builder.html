@@ -471,7 +471,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre class="methodSignature">public&nbsp;<a href="WelcomeImage.html" title="class in ch.andre601.fluxpoint4j.welcome">WelcomeImage</a>&nbsp;build()</pre>
 <div class="block">Creates a new, usable <a href="WelcomeImage.html" title="class in ch.andre601.fluxpoint4j.welcome"><code>WelcomeImage instance</code></a> for the 
  <a href="../Fluxpoint4J.html#getWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)"><code>getWelcomeImage</code></a> and
- <a href="../Fluxpoint4J.html#queueWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)"><code>queueWelcomeImage</code></a> methods.</div>
+ <a href="../Fluxpoint4J.html#queueWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)"><code>queueWelcomeImage</code></a> methods.
+
+ <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following cases:
+ <ul>
+     <li><a href="#withUsername(java.lang.String)"><code>Username</code></a> is null or empty.</li>
+     <li><a href="#withAvatar(java.lang.String)"><code>Avatar</code></a> is null or empty.</li>
+     <li><a href="#withBackgroundColor(ch.andre601.fluxpoint4j.util.ColorObject)"><code>Background color</code></a> is null.</li>
+ </ul></div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A new <a href="WelcomeImage.html" title="class in ch.andre601.fluxpoint4j.welcome"><code>WelcomeImage instance</code></a> from this Builder.</dd>

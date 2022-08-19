@@ -132,7 +132,31 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Fluxpoint4J</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
-<div class="block">Main class to generate and retrieve images with.</div>
+<div class="block">Main class to interact with the Fluxpoint API.
+ 
+ <p>It currently supports the following features:
+ <ul>
+     <li>Creating custom Images:
+     <ul>
+         <li><a href="#getCustomImage(ch.andre601.fluxpoint4j.image.CustomImage)"><code>getCustomImage(Image)</code></a></li>
+         <li><a href="#queueCustomImage(ch.andre601.fluxpoint4j.image.CustomImage)"><code>queueCustomImage(CustomImage)</code></a></li>
+     </ul>
+     </li>
+     <li>Creating Welcome Images:
+     <ul>
+         <li><a href="#getWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)"><code>getWelcomeImage(WelcomeImage)</code></a></li>
+         <li><a href="#queueWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)"><code>queueWelcomeImage(WelcomeImage)</code></a></li>
+     </ul>
+     </li>
+     <li>Getting MC Server information:
+     <ul>
+         <li><a href="#getMCServerInfo(java.lang.String)"><code>getMCServerInfo(String)</code></a></li>
+         <li><a href="#getMCServerInfo(java.lang.String,int)"><code>getMCServerInfo(String, int)</code></a></li>
+         <li><a href="#queueMCServerInfo(java.lang.String)"><code>queueMCServerInfo(String)</code></a></li>
+         <li><a href="#queueMCServerInfo(java.lang.String,int)"><code>queueMCServerInfo(String, int)</code></a></li>
+     </ul>
+     </li>
+ </ul></div>
 </li>
 </ul>
 </div>

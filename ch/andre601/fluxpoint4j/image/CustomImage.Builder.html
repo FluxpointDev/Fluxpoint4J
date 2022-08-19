@@ -136,6 +136,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public static class <span class="typeNameLabel">CustomImage.Builder</span>
 extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+<div class="block">Builder class to create a new <a href="CustomImage.html" title="class in ch.andre601.fluxpoint4j.image"><code>CustomImage instance</code></a>.
+ 
+ To get a new Builder instance will you need to call <a href="#createBase(ch.andre601.fluxpoint4j.image.format.Image)"><code>createBase(Image)</code></a> with a valid
+ <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Image instance</code></a>.
+ <br>Additional images may be added using <a href="#addImage(ch.andre601.fluxpoint4j.image.format.Image)"><code>addImage(Image)</code></a> and Text can be added using
+ <a href="#addText(ch.andre601.fluxpoint4j.image.format.Text)"><code>addText(Text)</code></a> with a valid <a href="format/Text.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Text instance</code></a>
+ provided.</div>
 </li>
 </ul>
 </div>
@@ -159,22 +166,30 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="CustomImage.Builder.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addImage(ch.andre601.fluxpoint4j.image.format.Image)">addImage</a></span>&#8203;(@NotNull <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format">Image</a>&nbsp;image)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds an additional <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Image instance</code></a> to the image.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="CustomImage.Builder.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addText(ch.andre601.fluxpoint4j.image.format.Text)">addText</a></span>&#8203;(@NotNull <a href="format/Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;text)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds a <a href="format/Text.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Text instance</code></a> to the image.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="CustomImage.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#build()">build</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Generates a new <a href="CustomImage.html" title="class in ch.andre601.fluxpoint4j.image"><code>CustomImage instance</code></a> to use for the actual API calls.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="CustomImage.Builder.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createBase(ch.andre601.fluxpoint4j.image.format.Image)">createBase</a></span>&#8203;(@NotNull <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format">Image</a>&nbsp;base)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creates a new instance of this Builder using the provided <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Image instance</code></a>.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -208,6 +223,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>createBase</h4>
 <pre class="methodSignature">public static&nbsp;<a href="CustomImage.Builder.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage.Builder</a>&nbsp;createBase&#8203;(@NotNull
                                              @NotNull <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format">Image</a>&nbsp;base)</pre>
+<div class="block">Creates a new instance of this Builder using the provided <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Image instance</code></a>.
+ <br>The provided Image instance will set a few things such as the final image's width and height.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>base</code> - The <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Image instance</code></a> to use as the base layer of the image.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>New instance of this Builder class to use.</dd>
+</dl>
 </li>
 </ul>
 <a id="addImage(ch.andre601.fluxpoint4j.image.format.Image)">
@@ -218,6 +241,18 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>addImage</h4>
 <pre class="methodSignature">public&nbsp;<a href="CustomImage.Builder.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage.Builder</a>&nbsp;addImage&#8203;(@NotNull
                                     @NotNull <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format">Image</a>&nbsp;image)</pre>
+<div class="block">Adds an additional <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Image instance</code></a> to the image.
+ <br>This image will be added as a new layer in the final image by the API.
+ 
+ <p>Calling this method again or <a href="#addText(ch.andre601.fluxpoint4j.image.format.Text)"><code>addText(Text)</code></a> can result in parts of the provided image
+ being covered by the new Image or Text provided in those extra calls. This depends on if parts of the image
+ and text overlap with each other.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>image</code> - The <a href="format/Image.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Image instance</code></a> to add as a new layer for the image.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The builder instance after the Image has been added. Useful for chaining.</dd>
+</dl>
 </li>
 </ul>
 <a id="addText(ch.andre601.fluxpoint4j.image.format.Text)">
@@ -228,6 +263,18 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>addText</h4>
 <pre class="methodSignature">public&nbsp;<a href="CustomImage.Builder.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage.Builder</a>&nbsp;addText&#8203;(@NotNull
                                    @NotNull <a href="format/Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;text)</pre>
+<div class="block">Adds a <a href="format/Text.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Text instance</code></a> to the image.
+ <br>This text will be added as a new layer in the final image by the API.
+
+ <p>Calling this method again or <a href="#addImage(ch.andre601.fluxpoint4j.image.format.Image)"><code>addImage(Image)</code></a> can result in parts of the provided image
+ being covered by the new Image or Text provided in those extra calls. This depends on if parts of the image
+ and text overlap with each other.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>text</code> - The <a href="format/Text.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>Text instance</code></a> to add as a new layer for the image.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The builder instance after the Image has been added. Useful for chaining.</dd>
+</dl>
 </li>
 </ul>
 <a id="build()">
@@ -237,6 +284,11 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>build</h4>
 <pre class="methodSignature">public&nbsp;<a href="CustomImage.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage</a>&nbsp;build()</pre>
+<div class="block">Generates a new <a href="CustomImage.html" title="class in ch.andre601.fluxpoint4j.image"><code>CustomImage instance</code></a> to use for the actual API calls.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>New CustomImage instance to use.</dd>
+</dl>
 </li>
 </ul>
 </li>
