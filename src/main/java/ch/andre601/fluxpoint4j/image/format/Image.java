@@ -567,10 +567,27 @@ public abstract class Image{
         }
     }
     
+    /**
+     * Defines the missing part of the {@link Triangle Triangle shape}.
+     * <br>As an example, using {@link Triangle#withCut(Cut) withCut(TOP_LEFT)} would result in a triangle that has a
+     * 90° corner on the bottom-right with a diagonal on the top-left side.
+     */
     public enum Cut{
+        /**
+         * Triangle with the diagonal being on the top-left.
+         */
         TOP_LEFT("TopLeft"),
+        /**
+         * Triangle with the diagonal being on the top-right.
+         */
         TOP_RIGHT("TopRight"),
+        /**
+         * Triangle with the diagonal being on the bottom-left.
+         */
         BOTTOM_LEFT("BottomLeft"),
+        /**
+         * Triangle with the diagonal being on the bottom-right.
+         */
         BOTTOM_RIGHT("BottomRight");
         
         private final String name;

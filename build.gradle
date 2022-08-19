@@ -44,12 +44,19 @@ javadoc {
     options.encoding("UTF-8")
     options.setMemberLevel(JavadocMemberLevel.PUBLIC)
     
+    exclude(
+            "ch/andre601/fluxpoint4j/request/RequestHandler.java",
+            "ch/andre601/fluxpoint4j/util/ColorObjectSerializer.java",
+            "ch/andre601/fluxpoint4j/CheckUtil.java"
+    )
+    
     if(options instanceof StandardJavadocDocletOptions) {
         def opt = options as StandardJavadocDocletOptions
         
         opt.links(
                 "https://docs.oracle.com/javase/8/docs/api"
         )
+        
         if(JavaVersion.current().isJava9Compatible()) {
             opt.addBooleanOption("html5", true)
             opt.addStringOption("-release", "8")

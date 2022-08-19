@@ -2,6 +2,9 @@ package ch.andre601.fluxpoint4j.request;
 
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Representation of a failed API response containing a {@link #getCode() error code} and {@link #getMessage() message}.
+ */
 public class FailedAPIResponse implements GenericAPIResponse{
     
     private int code;

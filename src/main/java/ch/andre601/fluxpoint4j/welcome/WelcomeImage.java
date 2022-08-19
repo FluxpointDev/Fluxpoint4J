@@ -199,6 +199,13 @@ public class WelcomeImage{
          * Creates a new, usable {@link WelcomeImage WelcomeImage instance} for the 
          * {@link ch.andre601.fluxpoint4j.Fluxpoint4J#getWelcomeImage(WelcomeImage) getWelcomeImage} and
          * {@link ch.andre601.fluxpoint4j.Fluxpoint4J#queueWelcomeImage(WelcomeImage) queueWelcomeImage} methods.
+         *
+         * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following cases:
+         * <ul>
+         *     <li>{@link #withUsername(String) Username} is null or empty.</li>
+         *     <li>{@link #withAvatar(String) Avatar} is null or empty.</li>
+         *     <li>{@link #withBackgroundColor(ColorObject) Background color} is null.</li>
+         * </ul>
          * 
          * @return A new {@link WelcomeImage WelcomeImage instance} from this Builder.
          */

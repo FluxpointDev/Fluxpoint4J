@@ -11,7 +11,31 @@ import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Main class to generate and retrieve images with.
+ * Main class to interact with the Fluxpoint API.
+ * 
+ * <p>It currently supports the following features:
+ * <ul>
+ *     <li>Creating custom Images:
+ *     <ul>
+ *         <li>{@link #getCustomImage(CustomImage) getCustomImage(Image)}</li>
+ *         <li>{@link #queueCustomImage(CustomImage) queueCustomImage(CustomImage)}</li>
+ *     </ul>
+ *     </li>
+ *     <li>Creating Welcome Images:
+ *     <ul>
+ *         <li>{@link #getWelcomeImage(WelcomeImage) getWelcomeImage(WelcomeImage)}</li>
+ *         <li>{@link #queueWelcomeImage(WelcomeImage) queueWelcomeImage(WelcomeImage)}</li>
+ *     </ul>
+ *     </li>
+ *     <li>Getting MC Server information:
+ *     <ul>
+ *         <li>{@link #getMCServerInfo(String) getMCServerInfo(String)}</li>
+ *         <li>{@link #getMCServerInfo(String, int) getMCServerInfo(String, int)}</li>
+ *         <li>{@link #queueMCServerInfo(String) queueMCServerInfo(String)}</li>
+ *         <li>{@link #queueMCServerInfo(String, int) queueMCServerInfo(String, int)}</li>
+ *     </ul>
+ *     </li>
+ * </ul>
  */
 public class Fluxpoint4J{
     

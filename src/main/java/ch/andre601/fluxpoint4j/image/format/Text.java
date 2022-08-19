@@ -49,7 +49,7 @@ public abstract class Text{
     
     /**
      * Sets the relative X (horizontal) position of the text, where 0 is the very left of the image.
-     * <br>The value can be 0 to {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE}.
+     * <br>The value can be between 0 and {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE} ({@value java.lang.Integer#MAX_VALUE})
      *
      * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
      * <ul>
@@ -65,7 +65,7 @@ public abstract class Text{
     
     /**
      * Sets the relative Y (vertical) position of the text, where 0 is the very top of the image.
-     * <br>The value can be 0 to {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE}.
+     * <br>The value can be between 0 and {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE} ({@value java.lang.Integer#MAX_VALUE})
      * 
      * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
      * <ul>
@@ -79,6 +79,15 @@ public abstract class Text{
      */
     public abstract Text withPosY(int posY);
     
+    /**
+     * Sets the text-alignment this text has using the provided {@link TextAlignment TextAlignment value}.
+     * <br>The text-alignment influences how the Text is positioned horizontally when using {@link #withPosX(int) withPosX(int)}.
+     * 
+     * @param  textAlignment
+     *         The Text-alignment to use for this text.
+     *
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text withTextAlignment(@NotNull TextAlignment textAlignment);
     
     /**
@@ -124,6 +133,15 @@ public abstract class Text{
      */
     public abstract Text withColor(@NotNull ColorObject color);
     
+    /**
+     * Sets the background color to use for the Text.
+     * <br>Please see the documentation of the {@link ColorObject ColorObject} for possible errors.
+     * 
+     * @param  backgroundColor
+     *         The color to use for the text-background.
+     *
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text withBackgroundColor(@NotNull ColorObject backgroundColor);
     
     /**
@@ -136,14 +154,75 @@ public abstract class Text{
      */
     public abstract Text asBold(boolean bold);
     
+    /**
+     * Sets whether the text should be <i>italic</i> or not.
+     * 
+     * @param  italic
+     *         Boolean to set if the text should be italic or not.
+     * 
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text asItalic(boolean italic);
     
+    /**
+     * Sets whether the text should be <u>underlined</u> or not.
+     * 
+     * @param  underline
+     *         Boolean to set if the text should be underlined or not.
+     *
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text asUnderline(boolean underline);
     
+    /**
+     * Sets the font weight of this text.
+     * <br>The value can be between 0 and {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE} ({@value java.lang.Integer#MAX_VALUE})
+     * where 0 would essentially hide the text.
+     *
+     * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+     * <ul>
+     *     <li>Weight is less than 0.</li>
+     * </ul>
+     * 
+     * @param  weight
+     *         The font weight to use.
+     *
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text withWeight(int weight);
     
+    /**
+     * Sets the maximum width the text should take.
+     * <br>The value can be between 0 and {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE} ({@value java.lang.Integer#MAX_VALUE})
+     * where 0 would essentially hide the text.
+     * 
+     * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+     * <ul>
+     *     <li>MaxWidth is less than 0.</li>
+     * </ul>
+     * 
+     * @param  maxWidth
+     *         The maximum width of the text.
+     * 
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text withMaxWidth(int maxWidth);
     
+    /**
+     * Sets the maximum height the text should take.
+     * <br>The value can be between 0 and {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE} ({@value java.lang.Integer#MAX_VALUE})
+     * where 0 would essentially hide the text.
+     * 
+     * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+     * <ul>
+     *     <li>MaxHeight is less than 0.</li>
+     * </ul>
+     * 
+     * @param  maxHeight
+     *         The maximum height of the text.
+     * 
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text withMaxHeight(int maxHeight);
     
     /**
@@ -156,14 +235,30 @@ public abstract class Text{
      */
     public abstract Text withOutline(boolean outline);
     
+    /**
+     * Sets the width of the outline for the text.
+     * <br>This has no effect if {@link #withOutline(boolean) withOutline(false)} (default value) is used.
+     * 
+     * <p>The value can be between 0 and {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE} ({@value java.lang.Integer#MAX_VALUE})
+     * where 0 would make the text have no outline.
+     *
+     * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+     * <ul>
+     *     <li>OutlineWidth is less than 0.</li>
+     * </ul>
+     * 
+     * @param  outlineWidth
+     *         The width the outline should have.
+     * 
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text withOutlineWidth(int outlineWidth);
     
     /**
      * Sets the outline color to use.
-     * <br>Please see the documentation of the {@link ColorObject ColorObject} for possible errors.
-     *
-     * <p>When {@link #withOutline(boolean) withOutline(boolean)} is set to {@code false} (default) will this option
-     * have no effect.
+     * <br>This has no effect if {@link #withOutline(boolean) withOutline(false)} (default value) is used.
+     * 
+     * <p>Please see the documentation of the {@link ColorObject ColorObject} for possible errors.
      *
      * @param  color
      *         The color to use for the outline.
@@ -172,6 +267,23 @@ public abstract class Text{
      */
     public abstract Text withOutlineColor(@NotNull ColorObject color);
     
+    /**
+     * Sets the blur the outline should have.
+     * <br>This has no effect if {@link #withOutline(boolean) withOutline(false)} (default value) is used.
+     *
+     * <p>The value can be between 0 and {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE} ({@value java.lang.Integer#MAX_VALUE})
+     * where 0 would make the text have no outline blurring.
+     *
+     * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+     * <ul>
+     *     <li>OutlineWidth is less than 0.</li>
+     * </ul>
+     * 
+     * @param  outlineBlur
+     *         The strength of the blurring for the outline.
+     * 
+     * @return The Text instance. Useful for chaining.
+     */
     public abstract Text withOutlineBlur(int outlineBlur);
     
     /**
@@ -225,7 +337,15 @@ public abstract class Text{
             this.posY = posY;
             return this;
         }
-        
+    
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  textAlignment
+         *         The Text-alignment to use for this text.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine withTextAlignment(@NotNull TextAlignment textAlignment){
             this.textAlignment = textAlignment.getName();
@@ -277,7 +397,15 @@ public abstract class Text{
             this.color = color;
             return this;
         }
-        
+    
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  backgroundColor
+         *         The color to use for the text-background.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine withBackgroundColor(@NotNull ColorObject backgroundColor){
             this.backgroundColor = backgroundColor;
@@ -297,25 +425,59 @@ public abstract class Text{
             this.bold = bold;
             return this;
         }
-        
+    
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  italic
+         *         Boolean to set if the text should be italic or not.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine asItalic(boolean italic){
             this.italic = italic;
             return this;
         }
-        
+    
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  underline
+         *         Boolean to set if the text should be underlined or not.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine asUnderline(boolean underline){
             this.underline = underline;
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  weight
+         *         The font weight to use.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine withWeight(int weight){
+            CheckUtil.isPositive(weight, "Weight");
+            
             this.weight = weight;
             return this;
         }
-        
+    
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  maxWidth
+         *         The maximum width of the text.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine withMaxWidth(int maxWidth){
             CheckUtil.isPositive(maxWidth, "MaxWidth");
@@ -323,7 +485,15 @@ public abstract class Text{
             this.maxWidth = maxWidth;
             return this;
         }
-        
+    
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  maxHeight
+         *         The maximum height of the text.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine withMaxHeight(int maxHeight){
             CheckUtil.isPositive(maxHeight, "MaxHeight");
@@ -346,6 +516,14 @@ public abstract class Text{
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  outlineWidth
+         *         The width the outline should have.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine withOutlineWidth(int outlineWidth){
             CheckUtil.isPositive(outlineWidth, "OutlineWidth");
@@ -368,6 +546,14 @@ public abstract class Text{
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  outlineBlur
+         *         The strength of the blurring for the outline.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
         @Override
         public SingleLine withOutlineBlur(int outlineBlur){
             CheckUtil.isPositive(outlineBlur, "OutlineBlur");
@@ -431,6 +617,14 @@ public abstract class Text{
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  textAlignment
+         *         The Text-alignment to use for this text.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine withTextAlignment(@NotNull TextAlignment textAlignment){
             this.textAlignment = textAlignment.getName();
@@ -483,6 +677,14 @@ public abstract class Text{
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  backgroundColor
+         *         The color to use for the text-background.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine withBackgroundColor(@NotNull ColorObject backgroundColor){
             this.backgroundColor = backgroundColor;
@@ -503,24 +705,56 @@ public abstract class Text{
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  italic
+         *         Boolean to set if the text should be italic or not.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine asItalic(boolean italic){
             this.italic = italic;
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  underline
+         *         Boolean to set if the text should be underlined or not.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine asUnderline(boolean underline){
             this.underline = underline;
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  weight
+         *         The font weight to use.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine withWeight(int weight){
             this.weight = weight;
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  maxWidth
+         *         The maximum width of the text.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine withMaxWidth(int maxWidth){
             CheckUtil.isPositive(maxWidth, "MaxWidth");
@@ -529,6 +763,14 @@ public abstract class Text{
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  maxHeight
+         *         The maximum height of the text.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine withMaxHeight(int maxHeight){
             CheckUtil.isPositive(maxHeight, "MaxHeight");
@@ -551,6 +793,14 @@ public abstract class Text{
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  outlineWidth
+         *         The width the outline should have.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine withOutlineWidth(int outlineWidth){
             CheckUtil.isPositive(outlineWidth, "OutlineWidth");
@@ -573,6 +823,14 @@ public abstract class Text{
             return this;
         }
     
+        /**
+         * {@inheritDoc}
+         * 
+         * @param  outlineBlur
+         *         The strength of the blurring for the outline.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
         @Override
         public MultiLine withOutlineBlur(int outlineBlur){
             CheckUtil.isPositive(outlineBlur, "OutlineBlur");
@@ -580,7 +838,20 @@ public abstract class Text{
             this.outlineBlur = outlineBlur;
             return this;
         }
-        
+    
+        /**
+         * Sets the spacing between the different lines of text.
+         *
+         * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+         * <ul>
+         *     <li>LineSpacing is less than 1.</li>
+         * </ul>
+         * 
+         * @param  lineSpacing
+         *         The space each line should have in-between.
+         * 
+         * @return The MultiLine instance. Useful for chaining.
+         */
         public MultiLine withLineSpacing(double lineSpacing){
             CheckUtil.isPositive(lineSpacing, "LineSpacing");
             
@@ -589,9 +860,22 @@ public abstract class Text{
         }
     }
     
+    /**
+     * Used to determine the text-alignment.
+     * <br>The text-alignment can have an affect on the {@link #withPosX(int) horizontal text-position}.
+     */
     public enum TextAlignment{
+        /**
+         * Left text-alignment.
+         */
         LEFT("l"),
+        /**
+         * Centered text-alignment.
+         */
         MIDDLE("m"),
+        /**
+         * Right text-alignment.
+         */
         RIGHT("r");
     
         private final String name;
