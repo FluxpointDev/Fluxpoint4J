@@ -3,7 +3,6 @@ plugins {
     id 'java-library'
     id 'idea'
     id 'com.github.johnrengelman.shadow' version '5.2.0'
-    id 'maven'
     id 'maven-publish'
 }
 
@@ -67,3 +66,18 @@ javadoc {
         }
     }
 }
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+
