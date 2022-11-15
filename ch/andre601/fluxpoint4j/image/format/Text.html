@@ -119,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>ch.andre601.fluxpoint4j.image.format.Text</li>
@@ -135,7 +135,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">Text</span>
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+extends java.lang.Object</pre>
 <div class="block">Base class used for adding <a href="Text.SingleLine.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>single</code></a> or <a href="Text.MultiLine.html" title="class in ch.andre601.fluxpoint4j.image.format"><code>multi-line</code></a> text to your
  <a href="../CustomImage.html" title="class in ch.andre601.fluxpoint4j.image"><code>custom image</code></a>.</div>
 </li>
@@ -255,7 +255,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>abstract <a href="Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#withFont(java.lang.String)">withFont</a></span>&#8203;(@NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;font)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#withFont(java.lang.String)">withFont</a></span>&#8203;(@NotNull java.lang.String&nbsp;font)</code></th>
 <td class="colLast">
 <div class="block">Sets the font to use for the text.</div>
 </td>
@@ -342,8 +342,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -388,9 +388,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>withPosX</h4>
 <pre class="methodSignature">public abstract&nbsp;<a href="Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;withPosX&#8203;(int&nbsp;posX)</pre>
 <div class="block">Sets the relative X (horizontal) position of the text, where 0 is the very left of the image.
- <br>The value can be between 0 and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink"><code>Integer.MAX_VALUE</code></a> (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink">2147483647</a>)
+ <br>The value can be between 0 and <code>Integer.MAX_VALUE</code> (2147483647)
 
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>PosX is less than 0.</li>
  </ul></div>
@@ -410,9 +410,9 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>withPosY</h4>
 <pre class="methodSignature">public abstract&nbsp;<a href="Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;withPosY&#8203;(int&nbsp;posY)</pre>
 <div class="block">Sets the relative Y (vertical) position of the text, where 0 is the very top of the image.
- <br>The value can be between 0 and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink"><code>Integer.MAX_VALUE</code></a> (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink">2147483647</a>)
+ <br>The value can be between 0 and <code>Integer.MAX_VALUE</code> (2147483647)
  
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>PosX is less than 0.</li>
  </ul></div>
@@ -451,7 +451,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <pre class="methodSignature">public abstract&nbsp;<a href="Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;withSize&#8203;(int&nbsp;size)</pre>
 <div class="block">Sets the text size to use.
 
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>Size is 0 or less.</li>
  </ul></div>
@@ -470,12 +470,12 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>withFont</h4>
 <pre class="methodSignature">public abstract&nbsp;<a href="Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;withFont&#8203;(@NotNull
-                              @NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;font)</pre>
+                              @NotNull java.lang.String&nbsp;font)</pre>
 <div class="block">Sets the font to use for the text.
  <br>Whether the provided font is valid and/or usable by the API depends on the Fluxpoint API itself and is nothing
  that can be checked in this library.
 
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>Font is an empty String.</li>
  </ul></div>
@@ -579,10 +579,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>withWeight</h4>
 <pre class="methodSignature">public abstract&nbsp;<a href="Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;withWeight&#8203;(int&nbsp;weight)</pre>
 <div class="block">Sets the font weight of this text.
- <br>The value can be between 0 and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink"><code>Integer.MAX_VALUE</code></a> (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink">2147483647</a>)
+ <br>The value can be between 0 and <code>Integer.MAX_VALUE</code> (2147483647)
  where 0 would essentially hide the text.
 
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>Weight is less than 0.</li>
  </ul></div>
@@ -602,10 +602,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>withMaxWidth</h4>
 <pre class="methodSignature">public abstract&nbsp;<a href="Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;withMaxWidth&#8203;(int&nbsp;maxWidth)</pre>
 <div class="block">Sets the maximum width the text should take.
- <br>The value can be between 0 and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink"><code>Integer.MAX_VALUE</code></a> (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink">2147483647</a>)
+ <br>The value can be between 0 and <code>Integer.MAX_VALUE</code> (2147483647)
  where 0 would essentially hide the text.
  
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>MaxWidth is less than 0.</li>
  </ul></div>
@@ -625,10 +625,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <h4>withMaxHeight</h4>
 <pre class="methodSignature">public abstract&nbsp;<a href="Text.html" title="class in ch.andre601.fluxpoint4j.image.format">Text</a>&nbsp;withMaxHeight&#8203;(int&nbsp;maxHeight)</pre>
 <div class="block">Sets the maximum height the text should take.
- <br>The value can be between 0 and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink"><code>Integer.MAX_VALUE</code></a> (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink">2147483647</a>)
+ <br>The value can be between 0 and <code>Integer.MAX_VALUE</code> (2147483647)
  where 0 would essentially hide the text.
  
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>MaxHeight is less than 0.</li>
  </ul></div>
@@ -666,10 +666,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Sets the width of the outline for the text.
  <br>This has no effect if <a href="#withOutline(boolean)"><code>withOutline(false)</code></a> (default value) is used.
  
- <p>The value can be between 0 and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink"><code>Integer.MAX_VALUE</code></a> (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink">2147483647</a>)
+ <p>The value can be between 0 and <code>Integer.MAX_VALUE</code> (2147483647)
  where 0 would make the text have no outline.
 
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>OutlineWidth is less than 0.</li>
  </ul></div>
@@ -711,10 +711,10 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <div class="block">Sets the blur the outline should have.
  <br>This has no effect if <a href="#withOutline(boolean)"><code>withOutline(false)</code></a> (default value) is used.
 
- <p>The value can be between 0 and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink"><code>Integer.MAX_VALUE</code></a> (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html?is-external=true#MAX_VALUE" title="class or interface in java.lang" class="externalLink">2147483647</a>)
+ <p>The value can be between 0 and <code>Integer.MAX_VALUE</code> (2147483647)
  where 0 would make the text have no outline blurring.
 
- <p>An <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink"><code>IllegalArgumentException</code></a> may be thrown in the following case:
+ <p>An <code>IllegalArgumentException</code> may be thrown in the following case:
  <ul>
      <li>OutlineWidth is less than 0.</li>
  </ul></div>

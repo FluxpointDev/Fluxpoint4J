@@ -119,7 +119,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>ch.andre601.fluxpoint4j.Fluxpoint4J</li>
@@ -131,7 +131,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <hr>
 <pre>public class <span class="typeNameLabel">Fluxpoint4J</span>
-extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></pre>
+extends java.lang.Object</pre>
 <div class="block">Main class to interact with the Fluxpoint API.
  
  <p>It currently supports the following features:
@@ -207,14 +207,14 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMCServerInfo(java.lang.String)">getMCServerInfo</a></span>&#8203;(@NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;host)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMCServerInfo(java.lang.String)">getMCServerInfo</a></span>&#8203;(@NotNull java.lang.String&nbsp;host)</code></th>
 <td class="colLast">
 <div class="block">Performs a request to the Fluxpoint API to check a Server and receive possible information from it.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMCServerInfo(java.lang.String,int)">getMCServerInfo</a></span>&#8203;(@NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;host,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMCServerInfo(java.lang.String,int)">getMCServerInfo</a></span>&#8203;(@NotNull java.lang.String&nbsp;host,
                int&nbsp;port)</code></th>
 <td class="colLast">
 <div class="block">Performs a request to the Fluxpoint API to check a Server and receive possible information from it.</div>
@@ -228,41 +228,41 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">CompletableFuture</a>&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queueCustomImage(ch.andre601.fluxpoint4j.image.CustomImage)">queueCustomImage</a></span>&#8203;(@NotNull <a href="image/CustomImage.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage</a>&nbsp;image)</code></th>
 <td class="colLast">
 <div class="block">Calls <a href="#getCustomImage(ch.andre601.fluxpoint4j.image.CustomImage)"><code>getCustomImage(CustomImage)</code></a> and wraps it into a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture&lt;GenericAPIResponse&gt;</code></a> for you to use.</div>
+ <code>CompletableFuture&lt;GenericAPIResponse&gt;</code> for you to use.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">CompletableFuture</a>&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queueMCServerInfo(java.lang.String)">queueMCServerInfo</a></span>&#8203;(@NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;host)</code></th>
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queueMCServerInfo(java.lang.String)">queueMCServerInfo</a></span>&#8203;(@NotNull java.lang.String&nbsp;host)</code></th>
 <td class="colLast">
 <div class="block">Calls <a href="#getMCServerInfo(java.lang.String)"><code>getMCServerInfo(String)</code></a> and wraps it into a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture&lt;GeneratedImage&gt;</code></a> for you to use.</div>
+ <code>CompletableFuture&lt;GeneratedImage&gt;</code> for you to use.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">CompletableFuture</a>&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queueMCServerInfo(java.lang.String,int)">queueMCServerInfo</a></span>&#8203;(@NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;host,
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queueMCServerInfo(java.lang.String,int)">queueMCServerInfo</a></span>&#8203;(@NotNull java.lang.String&nbsp;host,
                  int&nbsp;port)</code></th>
 <td class="colLast">
 <div class="block">Calls <a href="#getMCServerInfo(java.lang.String,int)"><code>getMCServerInfo(String, int)</code></a> and wraps it into a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture&lt;GeneratedImage&gt;</code></a> for you to use.</div>
+ <code>CompletableFuture&lt;GeneratedImage&gt;</code> for you to use.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">CompletableFuture</a>&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;</code></td>
+<td class="colFirst"><code>java.util.concurrent.CompletableFuture&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#queueWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)">queueWelcomeImage</a></span>&#8203;(@NotNull <a href="welcome/WelcomeImage.html" title="class in ch.andre601.fluxpoint4j.welcome">WelcomeImage</a>&nbsp;image)</code></th>
 <td class="colLast">
 <div class="block">Calls <a href="#getWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)"><code>getWelcomeImage(WelcomeImage)</code></a> and wraps it into a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture&lt;GeneratedImage&gt;</code></a> for you to use.</div>
+ <code>CompletableFuture&lt;GeneratedImage&gt;</code> for you to use.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setToken(java.lang.String)">setToken</a></span>&#8203;(@NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;token)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setToken(java.lang.String)">setToken</a></span>&#8203;(@NotNull java.lang.String&nbsp;token)</code></th>
 <td class="colLast">
 <div class="block">Sets the API token to use for the Fluxpoint API.</div>
 </td>
@@ -272,8 +272,8 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang" class="externalLink">Object</a></h3>
-<code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang" class="externalLink">equals</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang" class="externalLink">getClass</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang" class="externalLink">hashCode</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang" class="externalLink">notify</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang" class="externalLink">notifyAll</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang" class="externalLink">toString</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang" class="externalLink">wait</a>, <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait(long,int)" title="class or interface in java.lang" class="externalLink">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -317,7 +317,7 @@ extends <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html
 <li class="blockList">
 <h4>setToken</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setToken&#8203;(@NotNull
-                     @NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;token)</pre>
+                     @NotNull java.lang.String&nbsp;token)</pre>
 <div class="block">Sets the API token to use for the Fluxpoint API.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -369,10 +369,10 @@ public&nbsp;@Nullable <a href="request/GenericAPIResponse.html" title="interface
 <ul class="blockList">
 <li class="blockList">
 <h4>queueCustomImage</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">CompletableFuture</a>&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;&nbsp;queueCustomImage&#8203;(@NotNull
-                                                              @NotNull <a href="image/CustomImage.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage</a>&nbsp;image)</pre>
+<pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;&nbsp;queueCustomImage&#8203;(@NotNull
+                                                                                   @NotNull <a href="image/CustomImage.html" title="class in ch.andre601.fluxpoint4j.image">CustomImage</a>&nbsp;image)</pre>
 <div class="block">Calls <a href="#getCustomImage(ch.andre601.fluxpoint4j.image.CustomImage)"><code>getCustomImage(CustomImage)</code></a> and wraps it into a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture&lt;GenericAPIResponse&gt;</code></a> for you to use.
+ <code>CompletableFuture&lt;GenericAPIResponse&gt;</code> for you to use.
 
  <p>The returned <a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request"><code>GenericAPIResponse</code></a> can be one of two instances:
  <ul>
@@ -397,7 +397,7 @@ public&nbsp;@Nullable <a href="request/GenericAPIResponse.html" title="interface
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - The <a href="image/CustomImage.html" title="class in ch.andre601.fluxpoint4j.image"><code>CustomImage</code></a> to generate.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture</code></a> with a <a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request"><code>GenericAPIResponse</code></a> instance.</dd>
+<dd><code>CompletableFuture</code> with a <a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request"><code>GenericAPIResponse</code></a> instance.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="#getCustomImage(ch.andre601.fluxpoint4j.image.CustomImage)"><code>getCustomImage</code></a></dd>
 </dl>
@@ -447,10 +447,10 @@ public&nbsp;@Nullable <a href="request/GenericAPIResponse.html" title="interface
 <ul class="blockList">
 <li class="blockList">
 <h4>queueWelcomeImage</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">CompletableFuture</a>&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;&nbsp;queueWelcomeImage&#8203;(@NotNull
-                                                               @NotNull <a href="welcome/WelcomeImage.html" title="class in ch.andre601.fluxpoint4j.welcome">WelcomeImage</a>&nbsp;image)</pre>
+<pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;&nbsp;queueWelcomeImage&#8203;(@NotNull
+                                                                                    @NotNull <a href="welcome/WelcomeImage.html" title="class in ch.andre601.fluxpoint4j.welcome">WelcomeImage</a>&nbsp;image)</pre>
 <div class="block">Calls <a href="#getWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)"><code>getWelcomeImage(WelcomeImage)</code></a> and wraps it into a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture&lt;GeneratedImage&gt;</code></a> for you to use.
+ <code>CompletableFuture&lt;GeneratedImage&gt;</code> for you to use.
 
  <p>The returned <a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request"><code>GenericAPIResponse</code></a> can be one of two instances:
  <ul>
@@ -475,7 +475,7 @@ public&nbsp;@Nullable <a href="request/GenericAPIResponse.html" title="interface
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - The <a href="welcome/WelcomeImage.html" title="class in ch.andre601.fluxpoint4j.welcome"><code>WelcomeImage</code></a> to generate.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture</code></a> with a <a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request"><code>GenericAPIResponse</code></a> instance.</dd>
+<dd><code>CompletableFuture</code> with a <a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request"><code>GenericAPIResponse</code></a> instance.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="#getWelcomeImage(ch.andre601.fluxpoint4j.welcome.WelcomeImage)"><code>getWelcomeImage</code></a></dd>
 </dl>
@@ -488,7 +488,7 @@ public&nbsp;@Nullable <a href="request/GenericAPIResponse.html" title="interface
 <li class="blockList">
 <h4>getMCServerInfo</h4>
 <pre class="methodSignature">public&nbsp;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&nbsp;getMCServerInfo&#8203;(@NotNull
-                                          @NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;host)</pre>
+                                          @NotNull java.lang.String&nbsp;host)</pre>
 <div class="block">Performs a request to the Fluxpoint API to check a Server and receive possible information from it.
  <br>This particular method will ping the server with the default port 25565. If you want to set a own port, use
  <a href="#getMCServerInfo(java.lang.String,int)"><code>getMCServerInfo(String, int)</code></a> instead.
@@ -529,7 +529,7 @@ public&nbsp;@Nullable <a href="request/GenericAPIResponse.html" title="interface
 <li class="blockList">
 <h4>getMCServerInfo</h4>
 <pre class="methodSignature">public&nbsp;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&nbsp;getMCServerInfo&#8203;(@NotNull
-                                          @NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;host,
+                                          @NotNull java.lang.String&nbsp;host,
                                           int&nbsp;port)</pre>
 <div class="block">Performs a request to the Fluxpoint API to check a Server and receive possible information from it.
 
@@ -567,10 +567,10 @@ public&nbsp;@Nullable <a href="request/GenericAPIResponse.html" title="interface
 <ul class="blockList">
 <li class="blockList">
 <h4>queueMCServerInfo</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">CompletableFuture</a>&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;&nbsp;queueMCServerInfo&#8203;(@NotNull
-                                                               @NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;host)</pre>
+<pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;&nbsp;queueMCServerInfo&#8203;(@NotNull
+                                                                                    @NotNull java.lang.String&nbsp;host)</pre>
 <div class="block">Calls <a href="#getMCServerInfo(java.lang.String)"><code>getMCServerInfo(String)</code></a> and wraps it into a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture&lt;GeneratedImage&gt;</code></a> for you to use.
+ <code>CompletableFuture&lt;GeneratedImage&gt;</code> for you to use.
 
  <p>The returned <a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request"><code>GenericAPIResponse</code></a> can be one of two instances:
  <ul>
@@ -607,11 +607,11 @@ public&nbsp;@Nullable <a href="request/GenericAPIResponse.html" title="interface
 <ul class="blockListLast">
 <li class="blockList">
 <h4>queueMCServerInfo</h4>
-<pre class="methodSignature">public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink">CompletableFuture</a>&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;&nbsp;queueMCServerInfo&#8203;(@NotNull
-                                                               @NotNull <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;host,
-                                                               int&nbsp;port)</pre>
+<pre class="methodSignature">public&nbsp;java.util.concurrent.CompletableFuture&lt;<a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request">GenericAPIResponse</a>&gt;&nbsp;queueMCServerInfo&#8203;(@NotNull
+                                                                                    @NotNull java.lang.String&nbsp;host,
+                                                                                    int&nbsp;port)</pre>
 <div class="block">Calls <a href="#getMCServerInfo(java.lang.String,int)"><code>getMCServerInfo(String, int)</code></a> and wraps it into a
- <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html?is-external=true" title="class or interface in java.util.concurrent" class="externalLink"><code>CompletableFuture&lt;GeneratedImage&gt;</code></a> for you to use.
+ <code>CompletableFuture&lt;GeneratedImage&gt;</code> for you to use.
 
  <p>The returned <a href="request/GenericAPIResponse.html" title="interface in ch.andre601.fluxpoint4j.request"><code>GenericAPIResponse</code></a> can be one of two instances:
  <ul>
