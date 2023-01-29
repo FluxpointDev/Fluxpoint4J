@@ -482,9 +482,11 @@ public&nbsp;@Nullable java.lang.String&nbsp;getMessage()</pre>
 <h4>getRawIcon</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getRawIcon()</pre>
 <div class="block">Returns the Base64-encoded image used by the server.
- <br>To get the icon,</div>
+ <br>To get the icon, set <a href="../mc/MCRequestBuilder.html#withIcon(boolean)"><code>withIcon(true)</code></a> in
+ the <a href="../mc/MCRequestBuilder.html" title="class in ch.andre601.fluxpoint4j.mc"><code>MCRequestBuilder</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
+<dd>possibly-null/Empty, Base64-encoded String representing the Server's icon.</dd>
 </dl>
 </li>
 </ul>
