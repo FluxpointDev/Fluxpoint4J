@@ -130,8 +130,10 @@ public class MCServerPingResponse implements GenericAPIResponse{
     
     /**
      * Returns the Base64-encoded image used by the server.
-     * <br>To get the icon, 
-     * @return
+     * <br>To get the icon, set {@link ch.andre601.fluxpoint4j.mc.MCRequestBuilder#withIcon(boolean) withIcon(true)} in
+     * the {@link ch.andre601.fluxpoint4j.mc.MCRequestBuilder MCRequestBuilder}.
+     * 
+     * @return possibly-null/Empty, Base64-encoded String representing the Server's icon.
      */
     public String getRawIcon(){
         return rawIcon;
