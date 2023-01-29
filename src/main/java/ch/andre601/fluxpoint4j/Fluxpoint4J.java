@@ -197,7 +197,7 @@ public class Fluxpoint4J{
      * 
      * @return A new, usable instance of {@link MCRequestBuilder MCRequestBuilder}.
      */
-    public MCRequestBuilder getBuilder(){
+    public MCRequestBuilder getNewMCRequestBuilder(){
         return new MCRequestBuilder(token, requestHandler);
     }
     
@@ -231,7 +231,7 @@ public class Fluxpoint4J{
      * 
      * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
      * 
-     * @deprecated Use the {@link #getBuilder() new Builder} instead.
+     * @deprecated Use the {@link #getNewMCRequestBuilder() new Builder} instead.
      * 
      * @see #getMCServerInfo(String, int) getMCServerInfo  
      */
@@ -270,7 +270,7 @@ public class Fluxpoint4J{
      *
      * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
      *
-     * @deprecated Use the {@link #getBuilder() new Builder} instead.
+     * @deprecated Use the {@link #getNewMCRequestBuilder() new Builder} instead.
      */
     @Deprecated
     public GenericAPIResponse getMCServerInfo(@NotNull String host, int port){
@@ -306,7 +306,7 @@ public class Fluxpoint4J{
      *
      * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
      *
-     * @deprecated Use the {@link #getBuilder() new Builder} instead.
+     * @deprecated Use the {@link #getNewMCRequestBuilder() new Builder} instead.
      * 
      * @see #getMCServerInfo(String) getMCServerInfo
      */
@@ -346,7 +346,7 @@ public class Fluxpoint4J{
      *
      * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
      *
-     * @deprecated Use the {@link #getBuilder() new Builder} instead.
+     * @deprecated Use the {@link #getNewMCRequestBuilder() new Builder} instead.
      * 
      * @see #getMCServerInfo(String, int) getMCServerInfo
      */

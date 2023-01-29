@@ -110,11 +110,15 @@ You need to make `instanceof` checks to be sure that the returned instance is a 
 Example:  
 ```java
 public GeneratedImage getImage(CustomImage image){
-    GenericAPIResponse response = getCustomImage(image);
+    GenericAPIResponse response = api.getCustomImage(image);
     
-    if(response instanceof FailedAPIResponse){
-        System.out.println("Request FAILED!")
-        return null;
+    // instance creation in instanceof is only available in newer Java versions.
+    // On older ones, make a cast inside the if-block.
+    if(response instanceof FailedAPIResponse failedResponse){
+    System.out.println("Request FAILED!");
+    System.out.println("Response Code: " + failedResponse.getCode());
+    System.out.println("Response Message: " + failedResponse.getMessage());
+    return null;
     }
     
     return (GeneratedImage)response;
@@ -140,11 +144,15 @@ You need to make `instanceof` checks to be sure that the returned instance is a 
 Example:  
 ```java
 public GeneratedImage getImage(WelcomeImage image){
-    GenericAPIResponse response = getWelcomeImage(image);
+    GenericAPIResponse response = api.getWelcomeImage(image);
     
-    if(response instanceof FailedAPIResponse){
-        System.out.println("Request FAILED!")
-        return null;
+    // instance creation in instanceof is only available in newer Java versions.
+    // On older ones, make a cast inside the if-block.
+    if(response instanceof FailedAPIResponse failedResponse){
+    System.out.println("Request FAILED!");
+    System.out.println("Response Code: " + failedResponse.getCode());
+    System.out.println("Response Message: " + failedResponse.getMessage());
+    return null;
     }
     
     return (GeneratedImage)response;
@@ -156,19 +164,27 @@ public GeneratedImage getImage(WelcomeImage image){
 > **Note**  
 > Make sure to [create a Fluxpoint4J instance](#fluxpoint4j-class) first.
 
-You can ping a server and retrieve information from it by calling either `getMCServerInfo(String)`, `getMCServerInfo(String, int)` or one of their queue-equivalents.  
-The first one is pinging the provided domain/IP on the default port (25565) while the second one allows you to set a port.
+The Fluxpoint4J library includes a `MCRequestBuilder` class which allows you to build a new request to ping an existing Minecraft server and retrieve useful information.
+
+To use it, call the `getNewMCRequestBuilder()` to obtain an instance and use it to set the host (domain/IP), port and whether the server icon should be included.
+
+Just like with the other methods in the Fluxpoint4J library does the Builder offer a method to simply get the values synchronously, or to get it asynchronously through a `CompletableFuture`.
 
 The returned value is a `GenericAPIResponse` that can either be an instance of `MCServerPingResponse` or `FailedAPIResponse`.  
-You need to make `instanceof` checks to be sure that the returned instance is a Generated image or not.
+You need to make `instanceof` checks to be sure that the returned instance is a Ping response or not.
 
 Example:  
 ```java
 public MCServerPingResponse getServerInfo(){
-    GenericAPIResponse response = getMCServerInfo("mc.example.com");
+    // Synchronous request
+    GenericAPIResponse response = api.getNewMCRequestBuilder().withHost("example.com").performRequest();
     
-    if(response instanceof FailedAPIResponse){
-        System.out.println("Request FAILED!")
+    // instance creation in instanceof is only available in newer Java versions.
+    // On older ones, make a cast inside the if-block.
+    if(response instanceof FailedAPIResponse failedResponse){
+        System.out.println("Request FAILED!");
+        System.out.println("Response Code: " + failedResponse.getCode());
+        System.out.println("Response Message: " + failedResponse.getMessage());
         return null;
     }
     
