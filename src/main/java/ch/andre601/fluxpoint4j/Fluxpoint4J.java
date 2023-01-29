@@ -1,6 +1,7 @@
 package ch.andre601.fluxpoint4j;
 
 import ch.andre601.fluxpoint4j.image.CustomImage;
+import ch.andre601.fluxpoint4j.mc.MCRequestBuilder;
 import ch.andre601.fluxpoint4j.request.GeneratedImage;
 import ch.andre601.fluxpoint4j.request.GenericAPIResponse;
 import ch.andre601.fluxpoint4j.request.RequestHandler;
@@ -49,8 +50,7 @@ public class Fluxpoint4J{
      *        The API token to use.
      */
     public void setToken(@NotNull String token){
-        if(token.isEmpty())
-            throw new NullPointerException("Token may not be null.");
+        CheckUtil.notNullOrEmpty(token, "Token");
         
         this.token = token;
     }
@@ -192,6 +192,16 @@ public class Fluxpoint4J{
     }
     
     /**
+     * Creates and returns a new instance of the {@link MCRequestBuilder MCRequestBuilder} to use, which allows you
+     * to set various things in the request such as domain, port and if icon should be included.
+     * 
+     * @return A new, usable instance of {@link MCRequestBuilder MCRequestBuilder}.
+     */
+    public MCRequestBuilder getBuilder(){
+        return new MCRequestBuilder(token, requestHandler);
+    }
+    
+    /**
      * Performs a request to the Fluxpoint API to check a Server and receive possible information from it.
      * <br>This particular method will ping the server with the default port 25565. If you want to set a own port, use
      * {@link #getMCServerInfo(String, int) getMCServerInfo(String, int)} instead.
@@ -212,7 +222,7 @@ public class Fluxpoint4J{
      *     return;
      * }
      *
-     * // Request was successful. Response is a GeneratedImage instance!
+     * // Request was successful. Response is a MCServerPingResponse instance!
      * GeneratedImage image = (MCServerPingResponse)response;
      * }</pre>
      * 
@@ -221,8 +231,11 @@ public class Fluxpoint4J{
      * 
      * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
      * 
+     * @deprecated Use the {@link #getBuilder() new Builder} instead.
+     * 
      * @see #getMCServerInfo(String, int) getMCServerInfo  
      */
+    @Deprecated
     public GenericAPIResponse getMCServerInfo(@NotNull String host){
         return getMCServerInfo(host, 25565);
     }
@@ -246,7 +259,7 @@ public class Fluxpoint4J{
      *     return;
      * }
      *
-     * // Request was successful. Response is a GeneratedImage instance!
+     * // Request was successful. Response is a MCServerPingResponse instance!
      * GeneratedImage image = (MCServerPingResponse)response;
      * }</pre>
      * 
@@ -256,9 +269,12 @@ public class Fluxpoint4J{
      *         The port to ping the server on.
      *
      * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
+     *
+     * @deprecated Use the {@link #getBuilder() new Builder} instead.
      */
+    @Deprecated
     public GenericAPIResponse getMCServerInfo(@NotNull String host, int port){
-        return requestHandler.getMcServerResponse(token, host, port);
+        return requestHandler.getMcServerResponse(token, host, port, false);
     }
     
     /**
@@ -281,7 +297,7 @@ public class Fluxpoint4J{
      *     return;
      * }
      *
-     * // Request was successful. Response is a GeneratedImage instance!
+     * // Request was successful. Response is a MCServerPingResponse instance!
      * GeneratedImage image = (MCServerPingResponse)response;
      * }</pre>
      *
@@ -289,9 +305,12 @@ public class Fluxpoint4J{
      *         The server to ping. This can be a domain or IP.
      *
      * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
+     *
+     * @deprecated Use the {@link #getBuilder() new Builder} instead.
      * 
      * @see #getMCServerInfo(String) getMCServerInfo
      */
+    @Deprecated
     public CompletableFuture<GenericAPIResponse> queueMCServerInfo(@NotNull String host){
         return CompletableFuture.supplyAsync(() -> getMCServerInfo(host));
     }
@@ -316,7 +335,7 @@ public class Fluxpoint4J{
      *     return;
      * }
      *
-     * // Request was successful. Response is a GeneratedImage instance!
+     * // Request was successful. Response is a MCServerPingResponse instance!
      * GeneratedImage image = (MCServerPingResponse)response;
      * }</pre>
      *
@@ -326,9 +345,12 @@ public class Fluxpoint4J{
      *         The port to ping the server on.
      *
      * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
+     *
+     * @deprecated Use the {@link #getBuilder() new Builder} instead.
      * 
      * @see #getMCServerInfo(String, int) getMCServerInfo
      */
+    @Deprecated
     public CompletableFuture<GenericAPIResponse> queueMCServerInfo(@NotNull String host, int port){
         return CompletableFuture.supplyAsync(() -> getMCServerInfo(host, port));
     }

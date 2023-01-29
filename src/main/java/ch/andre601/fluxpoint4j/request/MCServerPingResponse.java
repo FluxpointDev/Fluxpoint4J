@@ -8,6 +8,9 @@ import org.jetbrains.annotations.Nullable;
  * {@link ch.andre601.fluxpoint4j.Fluxpoint4J Fluxpoint4J class}.
  */
 public class MCServerPingResponse implements GenericAPIResponse{
+    private int code;
+    private String message;
+    
     private boolean online;
     private String icon;
     private String motd;
@@ -17,8 +20,7 @@ public class MCServerPingResponse implements GenericAPIResponse{
     private boolean fullQuerry;
     private String[] players;
     private String status;
-    private int code;
-    private String message;
+    private String rawIcon;
     
     /**
      * {@inheritDoc}
@@ -124,5 +126,14 @@ public class MCServerPingResponse implements GenericAPIResponse{
      */
     public String getStatus(){
         return status;
+    }
+    
+    /**
+     * Returns the Base64-encoded image used by the server.
+     * <br>To get the icon, 
+     * @return
+     */
+    public String getRawIcon(){
+        return rawIcon;
     }
 }

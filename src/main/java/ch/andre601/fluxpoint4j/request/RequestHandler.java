@@ -27,9 +27,9 @@ public class RequestHandler{
         return getImage(token, "/gen/welcome", GSON.toJson(image));
     }
     
-    public GenericAPIResponse getMcServerResponse(String token, String server, int port){
+    public GenericAPIResponse getMcServerResponse(String token, String server, int port, boolean witIcon){
         Request request = new Request.Builder()
-            .url(String.format("%s/mc/ping?host=%s&port=%d", BASE_URL, server, port))
+            .url(String.format("%s/mc/ping?host=%s&port=%d&icon=%b", BASE_URL, server, port, witIcon))
             .addHeader("Authorization", token)
             .build();
         
