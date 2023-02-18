@@ -113,7 +113,7 @@ public class MCRequestBuilder{
      * Performs a request towards the Fluxpoint API to check a MC server and receive possible information from it and
      * wraps it into a {@link CompletableFuture CompletableFuture} for you to handle.
      *
-     * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be onw of two instances:
+     * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
      * <ul>
      *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
      *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request.</li>

@@ -3,9 +3,8 @@ package ch.andre601.fluxpoint4j.request;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Class used for the {@link ch.andre601.fluxpoint4j.Fluxpoint4J#getMCServerInfo(String, int) getMCServerInfo(...)} and
- * {@link ch.andre601.fluxpoint4j.Fluxpoint4J#queueMCServerInfo(String, int) queueMCServerInfo(...)} methods in the
- * {@link ch.andre601.fluxpoint4j.Fluxpoint4J Fluxpoint4J class}.
+ * Class used for the {@link ch.andre601.fluxpoint4j.mc.MCRequestBuilder#performRequest() MCRequestBuilder.performRequest()} and
+ * {@link ch.andre601.fluxpoint4j.mc.MCRequestBuilder#queueRequest() MCRequestBuilder.queueRequest()} methods.
  */
 public class MCServerPingResponse implements GenericAPIResponse{
     private int code;
@@ -17,7 +16,7 @@ public class MCServerPingResponse implements GenericAPIResponse{
     private int playersOnline;
     private int playersMax;
     private String version;
-    private boolean fullQuerry;
+    private boolean fullQuery;
     private String[] players;
     private String status;
     private String rawIcon;
@@ -104,9 +103,22 @@ public class MCServerPingResponse implements GenericAPIResponse{
      * <br>When {@code false} does it mean that certain values (i.e. the {@link #getPlayers() player list}) are empty.
      * 
      * @return True if all values are returned, otherwise false.
+     * 
+     * @deprecated The returned boolean instance had a typo, making it not be handled by the JSON parser. Use {@link #isFullQuery() isFullQuery} instead.
      */
+    @Deprecated
     public boolean isFullQuerry(){
-        return fullQuerry;
+        return fullQuery;
+    }
+    
+    /**
+     * Whether this returned info is the full query.
+     * <br>When {@code false} does it mean that certain values (i.e. the {@link #getPlayers() player list}) are empty.
+     *
+     * @return True if all values are returned, otherwise false.
+     */
+    public boolean isFullQuery(){
+        return fullQuery;
     }
     
     /**
