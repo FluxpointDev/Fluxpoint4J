@@ -4,6 +4,7 @@ import ch.andre601.fluxpoint4j.CheckUtil;
 import ch.andre601.fluxpoint4j.util.ColorObject;
 import com.google.gson.annotations.SerializedName;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Base class used to hold common values found in any of the following subclasses:
@@ -13,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
  *     <li>{@link Image.ImageURL ImageURL}</li>
  *     <li>{@link Image.Circle Circle}</li>
  *     <li>{@link Image.Triangle Triangle}</li>
+ *     <li>{@link Image.SVG SVG}</li>
  * </ul>
  * 
  * Note that not all values may get used. Calling specific methods (i.e. {@link #withColor(ColorObject) withColor} on
@@ -30,7 +32,10 @@ public abstract class Image{
     protected int width = 1;
     protected int height = 1;
     
-    protected ColorObject color = ColorObject.getFromRGB(0, 255, 255);
+    protected ColorObject color = null;
+    
+    @SerializedName("skip")
+    protected boolean hidden = false;
     
     /**
      * Sets the position on the X (horizontal) axis for the image.
@@ -94,6 +99,17 @@ public abstract class Image{
      * @return The Image class. Useful for chaining.
      */
     public abstract Image withColor(@NotNull ColorObject color);
+    
+    /**
+     * Sets the image's hidden status.
+     * <br>Should {@code true} be provided will the image be hidden and not shown in the final image.
+     * 
+     * @param  hidden
+     *         Whether to show or hide the image. True hides it.
+     * 
+     * @return The Image class. Useful for chaining.
+     */
+    public abstract Image hide(boolean hidden);
     
     /**
      * Class used to create the JSON for a Rectangle-shaped image (Referred to as "bitmap" in the fluxpoint API).
@@ -186,7 +202,23 @@ public abstract class Image{
          */
         @Override
         public Rectangle withColor(@NotNull ColorObject color){
+            CheckUtil.notNull(color, "Color");
+            
             this.color = color;
+            return this;
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  hidden
+         *         Whether to show or hide the image. True hides it.
+         *
+         * @return The Rectangle instance. Useful for chaining.
+         */
+        @Override
+        public Rectangle hide(boolean hidden){
+            this.hidden = hidden;
             return this;
         }
     
@@ -288,14 +320,29 @@ public abstract class Image{
         }
     
         /**
-         * This method cannot be used in the ImageURL image type.
-         * <br>Throws an {@link java.lang.IllegalArgumentException IllegalArgumentException} when called.
+         * Sets the background color to use to fill any transparency in the image.
+         * <br>Set this to {@code null} (Default) to not set any color.
          *
-         * @return Nothing.
+         * @return The ImageURL instance. Useful for chaining.
          */
         @Override
-        public ImageURL withColor(@NotNull ColorObject color){
-            throw new IllegalArgumentException("Cannot use withColor in image type ImageURL.");
+        public ImageURL withColor(@Nullable ColorObject color){
+            this.color = color;
+            return this;
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  hidden
+         *         Whether to show or hide the image. True hides it.
+         *
+         * @return The ImageURL instance. Useful for chaining.
+         */
+        @Override
+        public ImageURL hide(boolean hidden){
+            this.hidden = hidden;
+            return this;
         }
     
         /**
@@ -438,6 +485,20 @@ public abstract class Image{
             this.color = color;
             return this;
         }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  hidden
+         *         Whether to show or hide the image. True hides it.
+         *
+         * @return The Circle instance. Useful for chaining.
+         */
+        @Override
+        public Circle hide(boolean hidden){
+            this.hidden = hidden;
+            return this;
+        }
     
         /**
          * Sets the radius the circle should have.
@@ -552,6 +613,20 @@ public abstract class Image{
             this.color = color;
             return this;
         }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  hidden
+         *         Whether to show or hide the image. True hides it.
+         *
+         * @return The Triangle instance. Useful for chaining.
+         */
+        @Override
+        public Triangle hide(boolean hidden){
+            this.hidden = hidden;
+            return this;
+        }
     
         /**
          * Sets where the missing piece of the triangle should be displayed.
@@ -563,6 +638,297 @@ public abstract class Image{
          */
         public Triangle withCut(@NotNull Cut cut){
             this.cut = cut.getName();
+            return this;
+        }
+    }
+    
+    /**
+     * Class used to create the JSON for an SVG image.
+     * 
+     * <p>Supported options:
+     * <ul>
+     *     <li>Set X position.</li>
+     *     <li>Set Y position.</li>
+     *     <li>Set color.</li>
+     *     <li>Set SVG path content.</li>
+     *     <li>Set Size.</li>
+     * </ul>
+     */
+    public static class SVG extends Image{
+        
+        private String path = null;
+        private int size = 0;
+        
+        public SVG(){
+            this.type = "svg";
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  posX
+         *         The positive, horizontal position of the image.
+         *
+         * @return The SVG instance. Useful for chaining.
+         */
+        @Override
+        public SVG withPosX(int posX){
+            this.posX = posX;
+            return this;
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  posY
+         *         The positive, vertical position of the image.
+         *
+         * @return The SVG instance. Useful for chaining.
+         */
+        @Override
+        public SVG withPosY(int posY){
+            this.posY = posY;
+            return this;
+        }
+        
+        /**
+         * This method cannot be used in the SVG image type.
+         * <br>Throws an {@link java.lang.IllegalArgumentException IllegalArgumentException} when called.
+         *
+         * <p>Use {@link #withSize(int) withSize(int)} instead.
+         *
+         * @return Nothing.
+         */
+        @Override
+        public SVG withWidth(int width){
+            throw new IllegalArgumentException("Cannot use withWidth in image type SVG.");
+        }
+        
+        /**
+         * This method cannot be used in the SVG image type.
+         * <br>Throws an {@link java.lang.IllegalArgumentException IllegalArgumentException} when called.
+         *
+         * <p>Use {@link #withSize(int) withSize(int)} instead.
+         *
+         * @return Nothing.
+         */
+        @Override
+        public SVG withHeight(int height){
+            throw new IllegalArgumentException("Cannot use withHeight in image type SVG.");
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  color
+         *         The {@link ColorObject ColorObject} to use.
+         *
+         * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+         * <ul>
+         *     <li>Color is null.</li>
+         * </ul>
+         *
+         * @return The SVG instance. Useful for chaining.
+         */
+        @Override
+        public SVG withColor(@NotNull ColorObject color){
+            CheckUtil.notNull(color, "Color");
+            this.color = color;
+            return this;
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  hidden
+         *         Whether to show or hide the image. True hides it.
+         *
+         * @return The SVG instance. Useful for chaining.
+         */
+        @Override
+        public SVG hide(boolean hidden){
+            this.hidden = hidden;
+            return this;
+        }
+        
+        /**
+         * Sets the SVG's {@code path} properties to use for displaying the SVG itself.
+         * <br>The provided path should <b>only</b> be the String content of the {@code &lt;path&gt;} HTML object and
+         * not include anything else.
+         *
+         * @param  path
+         *         The path content to render the SVG from.
+         *
+         * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+         * <ul>
+         *     <li>Path is null or empty.</li>
+         * </ul>
+         *
+         * @return The SVG instance. Useful for chaining.
+         */
+        public SVG withPath(@NotNull String path){
+            CheckUtil.notNullOrEmpty(path, "Path");
+            this.path = path;
+            return this;
+        }
+        
+        /**
+         * Sets the size (width and height) of the SVG to use.
+         *
+         * @param  size
+         *         The positive size of the SVG in pixels.
+         *
+         * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+         * <ul>
+         *     <li>Size is less than 0.</li>
+         * </ul>
+         *
+         * @return The SVG instance. Useful for chaining.
+         */
+        public SVG withSize(int size){
+            CheckUtil.largerThan(size, 0, "Size");
+            
+            this.size = size;
+            return this;
+        }
+    }
+    
+    public static class Icon extends Image{
+        
+        private String icon = null;
+        private int size = 0;
+        
+        public Icon(){
+            this.type = "icon";
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  posX
+         *         The positive, horizontal position of the image.
+         *
+         * @return The Icon instance. Useful for chaining.
+         */
+        @Override
+        public Icon withPosX(int posX){
+            this.posX = posX;
+            return this;
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  posY
+         *         The positive, vertical position of the image.
+         *
+         * @return The Icon instance. Useful for chaining.
+         */
+        @Override
+        public Icon withPosY(int posY){
+            this.posY = posY;
+            return this;
+        }
+        
+        /**
+         * This method cannot be used in the Icon image type.
+         * <br>Throws an {@link java.lang.IllegalArgumentException IllegalArgumentException} when called.
+         *
+         * <p>Use {@link #withSize(int) withSize(int)} instead.
+         *
+         * @return Nothing.
+         */
+        @Override
+        public Icon withWidth(int width){
+            throw new IllegalArgumentException("Cannot use withWidth in image type SVG.");
+        }
+        
+        /**
+         * This method cannot be used in the Icon image type.
+         * <br>Throws an {@link java.lang.IllegalArgumentException IllegalArgumentException} when called.
+         *
+         * <p>Use {@link #withSize(int) withSize(int)} instead.
+         *
+         * @return Nothing.
+         */
+        @Override
+        public Icon withHeight(int height){
+            throw new IllegalArgumentException("Cannot use withHeight in image type SVG.");
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  color
+         *         The {@link ColorObject ColorObject} to use.
+         *
+         * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+         * <ul>
+         *     <li>Color is null.</li>
+         * </ul>
+         *
+         * @return The Icon instance. Useful for chaining.
+         */
+        @Override
+        public Icon withColor(@NotNull ColorObject color){
+            CheckUtil.notNull(color, "Color");
+            
+            this.color = color;
+            return this;
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  hidden
+         *         Whether to show or hide the image. True hides it.
+         *
+         * @return The Icon instance. Useful for chaining.
+         */
+        @Override
+        public Icon hide(boolean hidden){
+            this.hidden = hidden;
+            return this;
+        }
+        
+        /**
+         * Sets the icon that should be used for the image.
+         * <br>The provided String can be any valid identifier and name available in <a href="https://iconify.design" target="_blank">iconify.design</a>.
+         * 
+         * <p>Provided icon always has to be in the format {@code &lt;icon-set&gt;:&lt;icon&gt;}.
+         * <br>Example: {@code octicons:alert-24} for the <a href="https://primer.style/foundations/icons/alert-24" target="_blank">24px version of Octicons Alert SVG</a>.
+         * 
+         * <p>A complete list of all available Icon sets can be found <a href="https://icon-sets.iconify.design/" target="_blank">here</a>.
+         * 
+         * @param  icon
+         *         The icon to use. Needs to be in the format {@code &lt;icon-set&gt;:&lt;icon&gt;}.
+         * 
+         * @return The Icon instance. Useful for chaining.
+         */
+        public Icon withIcon(@NotNull String icon){
+            CheckUtil.notNullOrEmpty(icon, "Icon");
+            
+            this.icon = icon;
+            return this;
+        }
+        
+        /**
+         * Sets the size (width and height) of the Icon to use.
+         *
+         * @param  size
+         *         The positive size of the Icon in pixels.
+         *
+         * <p>An {@link java.lang.IllegalArgumentException IllegalArgumentException} may be thrown in the following case:
+         * <ul>
+         *     <li>Size is less than 0.</li>
+         * </ul>
+         *
+         * @return The Icon instance. Useful for chaining.
+         */
+        public Icon withSize(int size){
+            CheckUtil.largerThan(size, 0, "Size");
+            
+            this.size = size;
             return this;
         }
     }

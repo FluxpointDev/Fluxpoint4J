@@ -1,10 +1,12 @@
 package ch.andre601.fluxpoint4j;
 
 import ch.andre601.fluxpoint4j.image.CustomImage;
+import ch.andre601.fluxpoint4j.mc.MCRequest;
 import ch.andre601.fluxpoint4j.mc.MCRequestBuilder;
 import ch.andre601.fluxpoint4j.request.GeneratedImage;
 import ch.andre601.fluxpoint4j.request.GenericAPIResponse;
 import ch.andre601.fluxpoint4j.request.RequestHandler;
+import ch.andre601.fluxpoint4j.request.mc.MCServerPingResponse;
 import ch.andre601.fluxpoint4j.welcome.WelcomeImage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -191,6 +193,10 @@ public class Fluxpoint4J{
         return CompletableFuture.supplyAsync(() -> getWelcomeImage(image));
     }
     
+    public GenericAPIResponse getMCAPIResponse(@NotNull MCRequest request){
+        
+    }
+    
     /**
      * Creates and returns a new instance of the {@link MCRequestBuilder MCRequestBuilder} to use, which allows you
      * to set various things in the request such as domain, port and if icon should be included.
@@ -208,7 +214,7 @@ public class Fluxpoint4J{
      *
      * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
      * <ul>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
+     *     <li>Instance of {@link MCServerPingResponse MCServerPingResponse} on a successful request.</li>
      *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request</li>
      * </ul>
      *
@@ -245,7 +251,7 @@ public class Fluxpoint4J{
      *
      * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
      * <ul>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
+     *     <li>Instance of {@link MCServerPingResponse MCServerPingResponse} on a successful request.</li>
      *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request</li>
      * </ul>
      *
@@ -283,7 +289,7 @@ public class Fluxpoint4J{
      *
      * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
      * <ul>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
+     *     <li>Instance of {@link MCServerPingResponse MCServerPingResponse} on a successful request.</li>
      *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request</li>
      * </ul>
      *
@@ -321,7 +327,7 @@ public class Fluxpoint4J{
      *
      * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
      * <ul>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
+     *     <li>Instance of {@link MCServerPingResponse MCServerPingResponse} on a successful request.</li>
      *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request</li>
      * </ul>
      *

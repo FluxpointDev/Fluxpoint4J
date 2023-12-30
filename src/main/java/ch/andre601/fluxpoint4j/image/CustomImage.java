@@ -1,8 +1,10 @@
 package ch.andre601.fluxpoint4j.image;
 
+import ch.andre601.fluxpoint4j.image.format.GlobalOptions;
 import ch.andre601.fluxpoint4j.image.format.Image;
 import ch.andre601.fluxpoint4j.image.format.Text;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +19,13 @@ import java.util.List;
 public class CustomImage{
     
     private final Image base;
+    private final GlobalOptions global;
     private final List<Image> images;
     private final List<Text> texts;
     
-    private CustomImage(Image base, List<Image> images, List<Text> texts){
+    private CustomImage(Image base, GlobalOptions global, List<Image> images, List<Text> texts){
         this.base = base;
+        this.global = global;
         this.images = images;
         this.texts = texts;
     }
@@ -29,7 +33,7 @@ public class CustomImage{
     /**
      * Builder class to create a new {@link CustomImage CustomImage instance}.
      * 
-     * To get a new Builder instance will you need to call {@link #createBase(Image) createBase(Image)} with a valid
+     * <p>To get a new Builder instance will you need to call {@link #createBase(Image) createBase(Image)} with a valid
      * {@link ch.andre601.fluxpoint4j.image.format.Image Image instance}.
      * <br>Additional images may be added using {@link #addImage(Image) addImage(Image)} and Text can be added using
      * {@link #addText(Text) addText(Text)} with a valid {@link ch.andre601.fluxpoint4j.image.format.Text Text instance}
@@ -38,13 +42,14 @@ public class CustomImage{
     public static class Builder{
         
         private final Image base;
+        private GlobalOptions globalOptions = null;
         private final List<Image> images = new ArrayList<>();
         private final List<Text> texts = new ArrayList<>();
         
         private Builder(@NotNull Image base){
             this.base = base;
         }
-    
+        
         /**
          * Creates a new instance of this Builder using the provided {@link ch.andre601.fluxpoint4j.image.format.Image Image instance}.
          * <br>The provided Image instance will set a few things such as the final image's width and height.
@@ -57,7 +62,22 @@ public class CustomImage{
         public static Builder createBase(@NotNull Image base){
             return new Builder(base);
         }
-    
+        
+        /**
+         * Sets the {@link GlobalOptions default options} to use, should matching ones not be present in a Image or Text
+         * option.
+         * <br>Set this to {@code null} (Default) to not set any default options.
+         * 
+         * @param  globalOptions
+         *         The Default options to use.
+         *
+         * @return The builder instance after the default options have been set. Useful for chaining.
+         */
+        public Builder setGlobalOptions(@Nullable GlobalOptions globalOptions){
+            this.globalOptions = globalOptions;
+            return this;
+        }
+        
         /**
          * Adds an additional {@link ch.andre601.fluxpoint4j.image.format.Image Image instance} to the image.
          * <br>This image will be added as a new layer in the final image by the API.
@@ -100,7 +120,7 @@ public class CustomImage{
          * @return New CustomImage instance to use.
          */
         public CustomImage build(){
-            return new CustomImage(base, images, texts);
+            return new CustomImage(base, globalOptions, images, texts);
         }
     }
     

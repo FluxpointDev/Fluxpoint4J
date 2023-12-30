@@ -1,10 +1,12 @@
-package ch.andre601.fluxpoint4j.request;
+package ch.andre601.fluxpoint4j.request.mc;
 
+import ch.andre601.fluxpoint4j.mc.MCRequestBuilder;
+import ch.andre601.fluxpoint4j.request.GenericAPIResponse;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Class used for the {@link ch.andre601.fluxpoint4j.mc.MCRequestBuilder#performRequest() MCRequestBuilder.performRequest()} and
- * {@link ch.andre601.fluxpoint4j.mc.MCRequestBuilder#queueRequest() MCRequestBuilder.queueRequest()} methods.
+ * Class used for the {@link MCRequestBuilder#performRequest() MCRequestBuilder.performRequest()} and
+ * {@link MCRequestBuilder#queueRequest() MCRequestBuilder.queueRequest()} methods.
  */
 public class MCServerPingResponse implements GenericAPIResponse{
     private int code;
@@ -142,8 +144,8 @@ public class MCServerPingResponse implements GenericAPIResponse{
     
     /**
      * Returns the Base64-encoded image used by the server.
-     * <br>To get the icon, set {@link ch.andre601.fluxpoint4j.mc.MCRequestBuilder#withIcon(boolean) withIcon(true)} in
-     * the {@link ch.andre601.fluxpoint4j.mc.MCRequestBuilder MCRequestBuilder}.
+     * <br>To get the icon, set {@link MCRequestBuilder#withIcon(boolean) withIcon(true)} in
+     * the {@link MCRequestBuilder MCRequestBuilder}.
      * 
      * @return possibly-null/Empty, Base64-encoded String representing the Server's icon.
      */
