@@ -47,6 +47,10 @@ public abstract class Text{
     @SerializedName("outlineblur")
     protected int outlineBlur = 1;
     
+    // Show/Hide text
+    @SerializedName("skip")
+    protected boolean hidden = false;
+    
     /**
      * Sets the relative X (horizontal) position of the text, where 0 is the very left of the image.
      * <br>The value can be between 0 and {@link java.lang.Integer#MAX_VALUE Integer.MAX_VALUE} ({@value java.lang.Integer#MAX_VALUE})
@@ -232,7 +236,10 @@ public abstract class Text{
      *         Boolean to set if the text should have an outline.
      *
      * @return The Text instance. Useful for chaining.
+     * 
+     * @deprecated API only checks for {@link #withOutlineWidth(int) positive outline width value} now.
      */
+    @Deprecated
     public abstract Text withOutline(boolean outline);
     
     /**
@@ -285,6 +292,17 @@ public abstract class Text{
      * @return The Text instance. Useful for chaining.
      */
     public abstract Text withOutlineBlur(int outlineBlur);
+    
+    /**
+     * Sets whether this text should be hidden or not.
+     * <br>When set to true will the text not be rendered in the generated image.
+     * 
+     * @param  hidden
+     *         Whether to hide the text or not. True hides it.
+     * 
+     * @return The Text instance. Useful for chaining.
+     */
+    public abstract Text hide(boolean hidden);
     
     /**
      * Represents a single text line to add.
@@ -509,8 +527,11 @@ public abstract class Text{
          *         Boolean to set if the text should have an outline.
          *
          * @return The SingleLine instance. Useful for chaining.
+         *
+         * @deprecated API only checks for {@link #withOutlineWidth(int) positive outline width value} now.
          */
         @Override
+        @Deprecated
         public SingleLine withOutline(boolean outline){
             this.outline = outline;
             return this;
@@ -559,6 +580,20 @@ public abstract class Text{
             CheckUtil.isPositive(outlineBlur, "OutlineBlur");
             
             this.outlineBlur = outlineBlur;
+            return this;
+        }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  hidden
+         *         Whether to show or hide the text. True hides it.
+         *
+         * @return The SingleLine instance. Useful for chaining.
+         */
+        @Override
+        public SingleLine hide(boolean hidden){
+            this.hidden = hidden;
             return this;
         }
     }
@@ -786,8 +821,11 @@ public abstract class Text{
          *         Boolean to set if the text should have an outline.
          *
          * @return The MultiLine instance. Useful for chaining.
+         *
+         * @deprecated API only checks for {@link #withOutlineWidth(int) positive outline width value} now.
          */
         @Override
+        @Deprecated
         public MultiLine withOutline(boolean outline){
             this.outline = outline;
             return this;
@@ -838,6 +876,20 @@ public abstract class Text{
             this.outlineBlur = outlineBlur;
             return this;
         }
+        
+        /**
+         * {@inheritDoc}
+         *
+         * @param  hidden
+         *         Whether to show or hide the text. True hides it.
+         *
+         * @return The MultiLine instance. Useful for chaining.
+         */
+        @Override
+        public MultiLine hide(boolean hidden){
+            this.hidden = hidden;
+            return this;
+        }
     
         /**
          * Sets the spacing between the different lines of text.
@@ -862,7 +914,7 @@ public abstract class Text{
     
     /**
      * Used to determine the text-alignment.
-     * <br>The text-alignment can have an affect on the {@link #withPosX(int) horizontal text-position}.
+     * <br>The text-alignment can have an offset on the {@link #withPosX(int) horizontal text-position}.
      */
     public enum TextAlignment{
         /**

@@ -1,7 +1,7 @@
 package ch.andre601.fluxpoint4j;
 
 import ch.andre601.fluxpoint4j.image.CustomImage;
-import ch.andre601.fluxpoint4j.mc.MCRequestBuilder;
+import ch.andre601.fluxpoint4j.mc.MCRequest;
 import ch.andre601.fluxpoint4j.request.GeneratedImage;
 import ch.andre601.fluxpoint4j.request.GenericAPIResponse;
 import ch.andre601.fluxpoint4j.request.RequestHandler;
@@ -30,10 +30,7 @@ import java.util.concurrent.CompletableFuture;
  *     </li>
  *     <li>Getting MC Server information:
  *     <ul>
- *         <li>{@link #getMCServerInfo(String) getMCServerInfo(String)}</li>
- *         <li>{@link #getMCServerInfo(String, int) getMCServerInfo(String, int)}</li>
- *         <li>{@link #queueMCServerInfo(String) queueMCServerInfo(String)}</li>
- *         <li>{@link #queueMCServerInfo(String, int) queueMCServerInfo(String, int)}</li>
+ *         <li>{@link #getNewMCRequest() getNewMCRequest()}</li>
  *     </ul>
  *     </li>
  * </ul>
@@ -192,166 +189,12 @@ public class Fluxpoint4J{
     }
     
     /**
-     * Creates and returns a new instance of the {@link MCRequestBuilder MCRequestBuilder} to use, which allows you
-     * to set various things in the request such as domain, port and if icon should be included.
+     * Creates a new instance of the {@link MCRequest MCRequest class} that can be used to perform certain requests towards
+     * the Fluxpoint API to retrieve MC-related information.
      * 
-     * @return A new, usable instance of {@link MCRequestBuilder MCRequestBuilder}.
+     * @return A new, usable {@link MCRequest MCRequest instance}.
      */
-    public MCRequestBuilder getNewMCRequestBuilder(){
-        return new MCRequestBuilder(token, requestHandler);
-    }
-    
-    /**
-     * Performs a request to the Fluxpoint API to check a Server and receive possible information from it.
-     * <br>This particular method will ping the server with the default port 25565. If you want to set a own port, use
-     * {@link #getMCServerInfo(String, int) getMCServerInfo(String, int)} instead.
-     *
-     * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
-     * <ul>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request</li>
-     * </ul>
-     *
-     * to see if the request was successful or not can you do this simple check:
-     * <pre>{@code
-     * GenericAPIResponse response = getMCServerInfo("mc.example.com");
-     *
-     * if(response instanceof FailedAPIResponse){
-     *     // The request was not successful!
-     *     System.out.println("Request failed!");
-     *     return;
-     * }
-     *
-     * // Request was successful. Response is a MCServerPingResponse instance!
-     * GeneratedImage image = (MCServerPingResponse)response;
-     * }</pre>
-     * 
-     * @param  host
-     *         The server to ping. This can be a domain or IP.
-     * 
-     * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
-     * 
-     * @deprecated Use the {@link #getNewMCRequestBuilder() new Builder} instead.
-     * 
-     * @see #getMCServerInfo(String, int) getMCServerInfo  
-     */
-    @Deprecated
-    public GenericAPIResponse getMCServerInfo(@NotNull String host){
-        return getMCServerInfo(host, 25565);
-    }
-    
-    /**
-     * Performs a request to the Fluxpoint API to check a Server and receive possible information from it.
-     *
-     * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
-     * <ul>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request</li>
-     * </ul>
-     *
-     * to see if the request was successful or not can you do this simple check:
-     * <pre>{@code
-     * GenericAPIResponse response = getMCServerInfo("mc.example.com");
-     *
-     * if(response instanceof FailedAPIResponse){
-     *     // The request was not successful!
-     *     System.out.println("Request failed!");
-     *     return;
-     * }
-     *
-     * // Request was successful. Response is a MCServerPingResponse instance!
-     * GeneratedImage image = (MCServerPingResponse)response;
-     * }</pre>
-     * 
-     * @param  host
-     *         The server to ping. This can be a domain or IP.
-     * @param  port
-     *         The port to ping the server on.
-     *
-     * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
-     *
-     * @deprecated Use the {@link #getNewMCRequestBuilder() new Builder} instead.
-     */
-    @Deprecated
-    public GenericAPIResponse getMCServerInfo(@NotNull String host, int port){
-        return requestHandler.getMcServerResponse(token, host, port, false);
-    }
-    
-    /**
-     * Calls {@link #getMCServerInfo(String) getMCServerInfo(String)} and wraps it into a
-     * {@link CompletableFuture CompletableFuture&lt;GeneratedImage&gt;} for you to use.
-     *
-     * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
-     * <ul>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request</li>
-     * </ul>
-     *
-     * to see if the request was successful or not can you do this simple check:
-     * <pre>{@code
-     * GenericAPIResponse response = getMCServerInfo("mc.example.com");
-     *
-     * if(response instanceof FailedAPIResponse){
-     *     // The request was not successful!
-     *     System.out.println("Request failed!");
-     *     return;
-     * }
-     *
-     * // Request was successful. Response is a MCServerPingResponse instance!
-     * GeneratedImage image = (MCServerPingResponse)response;
-     * }</pre>
-     *
-     * @param  host
-     *         The server to ping. This can be a domain or IP.
-     *
-     * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
-     *
-     * @deprecated Use the {@link #getNewMCRequestBuilder() new Builder} instead.
-     * 
-     * @see #getMCServerInfo(String) getMCServerInfo
-     */
-    @Deprecated
-    public CompletableFuture<GenericAPIResponse> queueMCServerInfo(@NotNull String host){
-        return CompletableFuture.supplyAsync(() -> getMCServerInfo(host));
-    }
-    
-    /**
-     * Calls {@link #getMCServerInfo(String, int) getMCServerInfo(String, int)} and wraps it into a
-     * {@link CompletableFuture CompletableFuture&lt;GeneratedImage&gt;} for you to use.
-     *
-     * <p>The returned {@link GenericAPIResponse GenericAPIResponse} can be one of two instances:
-     * <ul>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.MCServerPingResponse MCServerPingResponse} on a successful request.</li>
-     *     <li>Instance of {@link ch.andre601.fluxpoint4j.request.FailedAPIResponse FailedAPIResponse} on a failed request</li>
-     * </ul>
-     *
-     * to see if the request was successful or not can you do this simple check:
-     * <pre>{@code
-     * GenericAPIResponse response = getMCServerInfo("mc.example.com");
-     *
-     * if(response instanceof FailedAPIResponse){
-     *     // The request was not successful!
-     *     System.out.println("Request failed!");
-     *     return;
-     * }
-     *
-     * // Request was successful. Response is a MCServerPingResponse instance!
-     * GeneratedImage image = (MCServerPingResponse)response;
-     * }</pre>
-     *
-     * @param  host
-     *         The server to ping. This can be a domain or IP.
-     * @param  port
-     *         The port to ping the server on.
-     *
-     * @return {@link GenericAPIResponse GenericAPIResponse} that is either a MCServerPingResponse or FailedAPIResponse instance.
-     *
-     * @deprecated Use the {@link #getNewMCRequestBuilder() new Builder} instead.
-     * 
-     * @see #getMCServerInfo(String, int) getMCServerInfo
-     */
-    @Deprecated
-    public CompletableFuture<GenericAPIResponse> queueMCServerInfo(@NotNull String host, int port){
-        return CompletableFuture.supplyAsync(() -> getMCServerInfo(host, port));
+    public MCRequest getNewMCRequest(){
+        return new MCRequest(token, requestHandler);
     }
 }

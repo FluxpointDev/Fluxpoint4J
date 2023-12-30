@@ -27,23 +27,24 @@ public class RequestHandler{
         return getImage(token, "/gen/welcome", GSON.toJson(image));
     }
     
-    public GenericAPIResponse getMcServerResponse(String token, String server, int port, boolean withIcon){
+    public GenericAPIResponse performMCRequest(String token, String path, Class<? extends GenericAPIResponse> responseType, String... parameters){
+        String params = String.join("&", parameters);
         Request request = new Request.Builder()
-            .url(String.format("%s/mc/ping?host=%s&port=%d&icon=%b", BASE_URL, server, port, withIcon))
+            .url(String.format("%s/mc/%s%s", BASE_URL, path, params.isEmpty() ? "" : "?" + params))
             .addHeader("Authorization", token)
             .build();
         
         try(Response response = CLIENT.newCall(request).execute()){
             ResponseBody responseBody = response.body();
             if(responseBody == null)
-                return new FailedAPIResponse("API returned a null/invalid Body!");
+                return new FailedAPIResponse("API returned null/invalid body.");
             
             if(!response.isSuccessful())
                 return GSON.fromJson(responseBody.string(), FailedAPIResponse.class);
             
-            return GSON.fromJson(responseBody.string(), MCServerPingResponse.class);
+            return GSON.fromJson(responseBody.string(), responseType);
         }catch(IOException ex){
-            return new FailedAPIResponse("Encountered IOException: " + ex.getMessage());
+            return new FailedAPIResponse("Encountered IOException! " + ex.getMessage());
         }
     }
     
