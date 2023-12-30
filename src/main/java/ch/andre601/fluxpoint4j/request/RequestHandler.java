@@ -1,7 +1,6 @@
 package ch.andre601.fluxpoint4j.request;
 
 import ch.andre601.fluxpoint4j.image.CustomImage;
-import ch.andre601.fluxpoint4j.request.mc.MCServerPingResponse;
 import ch.andre601.fluxpoint4j.util.ColorObject;
 import ch.andre601.fluxpoint4j.util.ColorObjectSerializer;
 import ch.andre601.fluxpoint4j.welcome.WelcomeImage;
@@ -46,26 +45,6 @@ public class RequestHandler{
             return GSON.fromJson(responseBody.string(), responseType);
         }catch(IOException ex){
             return new FailedAPIResponse("Encountered IOException! " + ex.getMessage());
-        }
-    }
-    
-    public GenericAPIResponse getMcServerResponse(String token, String server, int port, boolean withIcon){
-        Request request = new Request.Builder()
-            .url(String.format("%s/mc/ping?host=%s&port=%d&icon=%b", BASE_URL, server, port, withIcon))
-            .addHeader("Authorization", token)
-            .build();
-        
-        try(Response response = CLIENT.newCall(request).execute()){
-            ResponseBody responseBody = response.body();
-            if(responseBody == null)
-                return new FailedAPIResponse("API returned a null/invalid Body!");
-            
-            if(!response.isSuccessful())
-                return GSON.fromJson(responseBody.string(), FailedAPIResponse.class);
-            
-            return GSON.fromJson(responseBody.string(), MCServerPingResponse.class);
-        }catch(IOException ex){
-            return new FailedAPIResponse("Encountered IOException: " + ex.getMessage());
         }
     }
     
